@@ -1,2 +1,2 @@
-# ECommerce
+# eCommerce
 An online art/photography store

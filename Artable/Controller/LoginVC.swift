@@ -73,6 +73,7 @@ class LoginVC: UIViewController {
     
     // MARK: - Helper functions
     func configureUI() {
+        edgesForExtendedLayout = []
         navigationController?.navigationBar.barTintColor = .customRed
         navigationController?.navigationBar.barStyle = .black
         
@@ -80,12 +81,11 @@ class LoginVC: UIViewController {
         backgroundImageView.anchor(top: view.topAnchor, trailing: view.trailingAnchor, bottom: view.bottomAnchor, leading: view.leadingAnchor)
         
         let stack = UIStackView(arrangedSubviews: [loginLabel, emailTextField, passwordTextField, forgotPasswordButton, loginButton, newUserButton, guestButton])
-        let navbarHeight = UIApplication.shared.statusBarFrame.size.height + (navigationController?.navigationBar.frame.height ?? 0.0)
         stack.axis = .vertical
         stack.distribution = .fill
         stack.spacing = 15
         view.addSubview(stack)
-        stack.anchor(top: view.topAnchor, trailing: view.trailingAnchor, leading: view.leadingAnchor, topPadding: navbarHeight + 25, trailingPadding: 20, leadingPadding: 20)
+        stack.anchor(top: view.topAnchor, trailing: view.trailingAnchor, leading: view.leadingAnchor, topPadding: 20, trailingPadding: 20, leadingPadding: 20)
     }
 }
 

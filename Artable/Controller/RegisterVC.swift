@@ -55,20 +55,18 @@ class RegisterVC: UIViewController {
     
     // MARK: - Helper functions
     func configureUI() {
-        navigationController?.navigationBar.bar
+        edgesForExtendedLayout = []
         
         view.addSubview(backgroundImage)
         backgroundImage.anchor(top: view.topAnchor, trailing: view.trailingAnchor, bottom: view.bottomAnchor, leading: view.leadingAnchor)
         
         
         let stack = UIStackView(arrangedSubviews: [registerLabel, usernameTextField, emailTextField, passwordTextField, confirmPasswordTextField, registerButton])
-
-        let navbarHeight = UIApplication.shared.statusBarFrame.size.height + (navigationController?.navigationBar.frame.height ?? 0.0)
         stack.axis = .vertical
         stack.distribution = .fill
         stack.spacing = 15
         view.addSubview(stack)
-        stack.anchor(top: view.topAnchor, trailing: view.trailingAnchor, leading: view.leadingAnchor, topPadding: navbarHeight + 25, trailingPadding: 20, leadingPadding: 20)
+        stack.anchor(top: view.topAnchor, trailing: view.trailingAnchor, leading: view.leadingAnchor, topPadding: 20, trailingPadding: 20, leadingPadding: 20)
         
         view.addSubview(activityIndicator)
         activityIndicator.anchor(top: stack.bottomAnchor, centerX: view.centerXAnchor, topPadding: 10, height: 15, width: 15)

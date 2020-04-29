@@ -20,6 +20,7 @@
 		3D8523E32458F916005D1157 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D8523E12458F916005D1157 /* LaunchScreen.storyboard */; };
 		3D8523E92458F92B005D1157 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D8523C52458F8F3005D1157 /* Assets.xcassets */; };
 		3D8523EC2459039B005D1157 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8523EB2459039B005D1157 /* Extensions.swift */; };
+		3D8523EF2459205A005D1157 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8523EE2459205A005D1157 /* RegisterVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		3D8523E22458F916005D1157 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D8523E42458F916005D1157 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D8523EB2459039B005D1157 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		3D8523EE2459205A005D1157 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,10 +83,12 @@
 		3D8523BB2458F8F0005D1157 /* Artable */ = {
 			isa = PBXGroup;
 			children = (
-				3D8523EA2459038C005D1157 /* Utils */,
 				3D8523BC2458F8F0005D1157 /* AppDelegate.swift */,
 				3D8523BE2458F8F0005D1157 /* SceneDelegate.swift */,
-				3D8523C02458F8F0005D1157 /* LoginVC.swift */,
+				3D8523EA2459038C005D1157 /* Utils */,
+				3D8523F32459279A005D1157 /* Model */,
+				3D8523F024592087005D1157 /* View */,
+				3D8523ED24591C34005D1157 /* Controller */,
 				3D8523C22458F8F0005D1157 /* Main.storyboard */,
 				3D8523C72458F8F3005D1157 /* LaunchScreen.storyboard */,
 				3D8523CA2458F8F3005D1157 /* Info.plist */,
@@ -119,6 +123,29 @@
 				3D8523EB2459039B005D1157 /* Extensions.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		3D8523ED24591C34005D1157 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3D8523C02458F8F0005D1157 /* LoginVC.swift */,
+				3D8523EE2459205A005D1157 /* RegisterVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3D8523F024592087005D1157 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3D8523F32459279A005D1157 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,6 +254,7 @@
 				3D8523BD2458F8F0005D1157 /* AppDelegate.swift in Sources */,
 				3D8523BF2458F8F0005D1157 /* SceneDelegate.swift in Sources */,
 				3D8523EC2459039B005D1157 /* Extensions.swift in Sources */,
+				3D8523EF2459205A005D1157 /* RegisterVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

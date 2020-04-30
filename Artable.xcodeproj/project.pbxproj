@@ -11,6 +11,8 @@
 		3D18FAD1245A44A10067BECD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D18FAD0245A44A10067BECD /* GoogleService-Info.plist */; };
 		3D18FAD3245A45AB0067BECD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D18FAD2245A45AB0067BECD /* GoogleService-Info.plist */; };
 		3D18FAD5245A53A40067BECD /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D18FAD4245A53A40067BECD /* PasswordTextField.swift */; };
+		3D18FAD7245A62B00067BECD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D18FAD6245A62B00067BECD /* Constants.swift */; };
+		3D18FADA245A66BA0067BECD /* RoundedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D18FAD9245A66BA0067BECD /* RoundedViews.swift */; };
 		3D8523BD2458F8F0005D1157 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8523BC2458F8F0005D1157 /* AppDelegate.swift */; };
 		3D8523BF2458F8F0005D1157 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8523BE2458F8F0005D1157 /* SceneDelegate.swift */; };
 		3D8523C12458F8F0005D1157 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8523C02458F8F0005D1157 /* LoginVC.swift */; };
@@ -34,6 +36,8 @@
 		3D18FAD0245A44A10067BECD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3D18FAD2245A45AB0067BECD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3D18FAD4245A53A40067BECD /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
+		3D18FAD6245A62B00067BECD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		3D18FAD9245A66BA0067BECD /* RoundedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedViews.swift; sourceTree = "<group>"; };
 		3D8523B92458F8F0005D1157 /* Artable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Artable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D8523BC2458F8F0005D1157 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D8523BE2458F8F0005D1157 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +81,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D18FAD8245A66A80067BECD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3D18FAD4245A53A40067BECD /* PasswordTextField.swift */,
+				3D18FAD9245A66BA0067BECD /* RoundedViews.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		3D8523B02458F8F0005D1157 = {
 			isa = PBXGroup;
 			children = (
@@ -103,7 +116,6 @@
 			children = (
 				3D8523BC2458F8F0005D1157 /* AppDelegate.swift */,
 				3D8523BE2458F8F0005D1157 /* SceneDelegate.swift */,
-				3D8523EA2459038C005D1157 /* Utils */,
 				3D8523F32459279A005D1157 /* Model */,
 				3D8523F024592087005D1157 /* View */,
 				3D8523ED24591C34005D1157 /* Controller */,
@@ -132,6 +144,8 @@
 		3D8523E82458F91C005D1157 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				3D8523EA2459038C005D1157 /* Utils */,
+				3D18FAD8245A66A80067BECD /* Views */,
 				3D8523C52458F8F3005D1157 /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -140,6 +154,7 @@
 		3D8523EA2459038C005D1157 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				3D18FAD6245A62B00067BECD /* Constants.swift */,
 				3D8523EB2459039B005D1157 /* Extensions.swift */,
 			);
 			path = Utils;
@@ -157,7 +172,6 @@
 		3D8523F024592087005D1157 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3D18FAD4245A53A40067BECD /* PasswordTextField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -382,6 +396,8 @@
 				3D8523BD2458F8F0005D1157 /* AppDelegate.swift in Sources */,
 				3D18FAD5245A53A40067BECD /* PasswordTextField.swift in Sources */,
 				3D8523BF2458F8F0005D1157 /* SceneDelegate.swift in Sources */,
+				3D18FADA245A66BA0067BECD /* RoundedViews.swift in Sources */,
+				3D18FAD7245A62B00067BECD /* Constants.swift in Sources */,
 				3D8523EC2459039B005D1157 /* Extensions.swift in Sources */,
 				3D8523EF2459205A005D1157 /* RegisterVC.swift in Sources */,
 			);

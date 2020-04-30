@@ -49,11 +49,6 @@ extension UIView {
     }
 }
 
-extension UIColor {
-    static var customBlue = #colorLiteral(red: 0.2274509804, green: 0.2666666667, blue: 0.3607843137, alpha: 1)
-    static var customRed = #colorLiteral(red: 0.8352941176, green: 0.3921568627, blue: 0.3137254902, alpha: 1)
-    static var customWhite = #colorLiteral(red: 0.9529411765, green: 0.9490196078, blue: 0.968627451, alpha: 1)
-}
 
 extension UITextField {
     func create(withPlaceholder placeholder: String) -> UITextField {
@@ -66,6 +61,8 @@ extension UITextField {
         padding.anchor(height: tf.frame.height, width: 10)
         tf.leftView = padding
         tf.leftViewMode = .always
+        
+        tf.layer.cornerRadius = 10
         
         return tf
     }
@@ -80,6 +77,7 @@ extension UIButton {
         button.setTitleColor(color, for: .normal)
         button.backgroundColor = bgColor
         button.anchor(height: 40)
+        button.layer.cornerRadius = 10
         
         if let textAlignment = textAlignment {
             button.contentHorizontalAlignment = textAlignment

@@ -16,7 +16,7 @@ class LoginVC: UIViewController {
     }()
     
     private let loginLabel: UILabel = {
-        return UILabel().createTitleLabels(withText: "Log In", ofColor: .customBlue)
+        return UILabel().createTitleLabels(withText: "Log In", ofColor: AppColors.customBlue)
     }()
     
     private let emailTextField: UITextField = {
@@ -28,25 +28,25 @@ class LoginVC: UIViewController {
     }()
     
     private let forgotPasswordButton: UIButton = {
-        let button = UIButton().createCustomButton(withTitle: "Forgot Password?", ofColor: .customRed, withBackgroundColor: .clear, textAlignment: .right)
+        let button = UIButton().createCustomButton(withTitle: "Forgot Password?", ofColor: AppColors.customRed, withBackgroundColor: .clear, textAlignment: .right)
         button.addTarget(self, action: #selector(forgotPasswordBtnPressed), for: .touchUpInside)
         return button
     }()
     
     private let loginButton: UIButton = {
-        let button = UIButton().createCustomButton(withTitle: "Log In", ofColor: UIColor.customWhite, withBackgroundColor: .customBlue)
+        let button = UIButton().createCustomButton(withTitle: "Log In", ofColor: AppColors.customWhite, withBackgroundColor: AppColors.customBlue)
         button.addTarget(self, action: #selector(loginBtnPressed), for: .touchUpInside)
         return button
     }()
     
     private let newUserButton: UIButton = {
-        let button = UIButton().createCustomButton(withTitle: "Create new user", ofColor: UIColor.customWhite, withBackgroundColor: .customRed)
+        let button = UIButton().createCustomButton(withTitle: "Create new user", ofColor: AppColors.customWhite, withBackgroundColor: AppColors.customRed)
         button.addTarget(self, action: #selector(newUserBtnPressed), for: .touchUpInside)
         return button
     }()
     
     private let guestButton: UIButton = {
-        let button = UIButton().createCustomButton(withTitle: "Continue as guest", ofColor: UIColor.customWhite, withBackgroundColor: .lightGray)
+        let button = UIButton().createCustomButton(withTitle: "Continue as guest", ofColor: AppColors.customWhite, withBackgroundColor: .lightGray)
         button.addTarget(self, action: #selector(guestButtonBtnPressed), for: .touchUpInside)
         return button
     }()
@@ -74,7 +74,7 @@ class LoginVC: UIViewController {
     // MARK: - Helper functions
     func configureUI() {
         edgesForExtendedLayout = []
-        navigationController?.navigationBar.barTintColor = .customRed
+        navigationController?.navigationBar.barTintColor = AppColors.customRed
         navigationController?.navigationBar.barStyle = .black
         
         view.addSubview(backgroundImageView)

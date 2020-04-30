@@ -17,7 +17,7 @@ class RegisterVC: UIViewController {
     }()
     
     private let registerLabel: UILabel = {
-        return UILabel().createTitleLabels(withText: "Register", ofColor: .customRed)
+        return UILabel().createTitleLabels(withText: "Register", ofColor: AppColors.customRed)
     }()
     
     private let usernameTextField: UITextField = {
@@ -43,7 +43,7 @@ class RegisterVC: UIViewController {
     }()
     
     private let registerButton: UIButton = {
-        let button = UIButton().createCustomButton(withTitle: "Register", ofColor: .customWhite, withBackgroundColor: .customBlue)
+        let button = UIButton().createCustomButton(withTitle: "Register", ofColor: AppColors.customWhite, withBackgroundColor: AppColors.customBlue)
         button.addTarget(self, action: #selector(handleRegisterPressed), for: .touchUpInside)
         return button
     }()
@@ -119,7 +119,7 @@ class RegisterVC: UIViewController {
         stack.anchor(top: view.topAnchor, trailing: view.trailingAnchor, leading: view.leadingAnchor, topPadding: 20, trailingPadding: 20, leadingPadding: 20)
         
         view.addSubview(activityIndicator)
-        activityIndicator.anchor(top: stack.bottomAnchor, centerX: view.centerXAnchor, topPadding: 10, height: 15, width: 15)
+        activityIndicator.anchor(top: stack.bottomAnchor, centerX: view.centerXAnchor, topPadding: 30, height: 15, width: 15)
     }
     
 }

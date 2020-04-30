@@ -9,7 +9,7 @@
 import UIKit
 
 class PasswordTextField: UITextField {
-
+    // MARK: - Properties
     let passwordCheckImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.isHidden = true
@@ -22,6 +22,7 @@ class PasswordTextField: UITextField {
         return padding
     }()
     
+    // MARK: - Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupTextField()
@@ -31,9 +32,10 @@ class PasswordTextField: UITextField {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
+    // MARK: - Helper functions
     func setupTextField() {
         backgroundColor = .white
+        layer.cornerRadius = 10
         anchor(height: 40)
         
         addSubview(padding)

@@ -56,7 +56,7 @@ extension UIColor {
 }
 
 extension UITextField {
-    func createCustomTextField(withPlaceholder placeholder: String, withCheckImage image: UIImage? = nil) -> UITextField {
+    func create(withPlaceholder placeholder: String) -> UITextField {
         let tf = UITextField()
         tf.backgroundColor = .white
         tf.placeholder = placeholder
@@ -67,13 +67,6 @@ extension UITextField {
         tf.leftView = padding
         tf.leftViewMode = .always
         
-        if let image = image {
-            let imageView = UIImageView()
-            tf.addSubview(imageView)
-            imageView.isHidden = true
-            imageView.image = image
-            imageView.anchor(trailing: tf.trailingAnchor, centerY: tf.centerYAnchor, trailingPadding: 6, height: 30, width: 30)
-        }
         return tf
     }
 }
@@ -115,5 +108,12 @@ extension UIImageView {
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
+    }
+}
+
+
+extension String {
+    var isNotEmpty: Bool {
+        return !isEmpty
     }
 }

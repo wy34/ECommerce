@@ -21,19 +21,25 @@ class RegisterVC: UIViewController {
     }()
     
     private let usernameTextField: UITextField = {
-        return UITextField().createCustomTextField(withPlaceholder: "username")
+        return UITextField().create(withPlaceholder: "username")
     }()
     
     private let emailTextField: UITextField = {
-        return UITextField().createCustomTextField(withPlaceholder: "email")
+        return UITextField().create(withPlaceholder: "email")
     }()
     
-    private let passwordTextField: UITextField = {
-        return UITextField().createCustomTextField(withPlaceholder: "password", withCheckImage: #imageLiteral(resourceName: "red_check"))
+    private let passwordTextField: PasswordTextField = {
+        let tf = PasswordTextField()
+        tf.placeholder = "password"
+        tf.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        return tf
     }()
     
-    private let confirmPasswordTextField: UITextField = {
-        return UITextField().createCustomTextField(withPlaceholder: "confirm password", withCheckImage: #imageLiteral(resourceName: "red_check"))
+    private let confirmPasswordTextField: PasswordTextField = {
+        let tf = PasswordTextField()
+        tf.placeholder = "confirm password"
+        tf.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        return tf
     }()
     
     private let registerButton: UIButton = {
@@ -56,9 +62,11 @@ class RegisterVC: UIViewController {
     
     // MARK: - Selectors
     @objc func handleRegisterPressed() {
-        guard let username = usernameTextField.text, !username.isEmpty,
-            let email = emailTextField.text, !email.isEmpty,
-            let  password = passwordTextField.text, !username.isEmpty else { return }
+        guard let username = usernameTextField.text, username.isNotEmpty,
+            let email = emailTextField.text, email.isNotEmpty,
+            let  password = passwordTextField.text, password.isNotEmpty else { return }
+        
+        activityIndicator.startAnimating()
         
         Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
             if let error = error {
@@ -66,9 +74,33 @@ class RegisterVC: UIViewController {
                 return
             }
             
+            self.activityIndicator.stopAnimating()
             print("Successfully registered new user")
         }
         
+    }
+    
+    @objc func textFieldDidChange(_ textfield: UITextField) {
+        guard let password = passwordTextField.text else { return }
+        
+        if textfield == confirmPasswordTextField {
+            passwordTextField.passwordCheckImageView.isHidden = false
+            confirmPasswordTextField.passwordCheckImageView.isHidden = false
+        } else {
+            if password == "" {
+                confirmPasswordTextField.text = ""
+                passwordTextField.passwordCheckImageView.isHidden = true
+                confirmPasswordTextField.passwordCheckImageView.isHidden = true
+            }
+        }
+        
+        if passwordTextField.text == confirmPasswordTextField.text {
+            passwordTextField.passwordCheckImageView.image = #imageLiteral(resourceName: "green_check")
+            confirmPasswordTextField.passwordCheckImageView.image = #imageLiteral(resourceName: "green_check")
+        } else {
+            passwordTextField.passwordCheckImageView.image = #imageLiteral(resourceName: "red_check")
+            confirmPasswordTextField.passwordCheckImageView.image = #imageLiteral(resourceName: "red_check")
+        }
     }
     
     // MARK: - Helper functions

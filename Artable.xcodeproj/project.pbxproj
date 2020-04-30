@@ -10,6 +10,7 @@
 		17BAD5D348ACAE47E0C32BB5 /* Pods_ArtableAdmin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC9EEB4B596402B23E8B6E54 /* Pods_ArtableAdmin.framework */; };
 		3D18FAD1245A44A10067BECD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D18FAD0245A44A10067BECD /* GoogleService-Info.plist */; };
 		3D18FAD3245A45AB0067BECD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D18FAD2245A45AB0067BECD /* GoogleService-Info.plist */; };
+		3D18FAD5245A53A40067BECD /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D18FAD4245A53A40067BECD /* PasswordTextField.swift */; };
 		3D8523BD2458F8F0005D1157 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8523BC2458F8F0005D1157 /* AppDelegate.swift */; };
 		3D8523BF2458F8F0005D1157 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8523BE2458F8F0005D1157 /* SceneDelegate.swift */; };
 		3D8523C12458F8F0005D1157 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8523C02458F8F0005D1157 /* LoginVC.swift */; };
@@ -32,6 +33,7 @@
 		31FF3F7B135EEA2F736C84D8 /* Pods-ArtableAdmin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArtableAdmin.debug.xcconfig"; path = "Target Support Files/Pods-ArtableAdmin/Pods-ArtableAdmin.debug.xcconfig"; sourceTree = "<group>"; };
 		3D18FAD0245A44A10067BECD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3D18FAD2245A45AB0067BECD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3D18FAD4245A53A40067BECD /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
 		3D8523B92458F8F0005D1157 /* Artable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Artable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D8523BC2458F8F0005D1157 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D8523BE2458F8F0005D1157 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 		3D8523F024592087005D1157 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3D18FAD4245A53A40067BECD /* PasswordTextField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 			files = (
 				3D8523C12458F8F0005D1157 /* LoginVC.swift in Sources */,
 				3D8523BD2458F8F0005D1157 /* AppDelegate.swift in Sources */,
+				3D18FAD5245A53A40067BECD /* PasswordTextField.swift in Sources */,
 				3D8523BF2458F8F0005D1157 /* SceneDelegate.swift in Sources */,
 				3D8523EC2459039B005D1157 /* Extensions.swift in Sources */,
 				3D8523EF2459205A005D1157 /* RegisterVC.swift in Sources */,

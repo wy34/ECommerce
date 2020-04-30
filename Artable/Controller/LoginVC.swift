@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginVC: UIViewController {
     
@@ -50,6 +51,13 @@ class LoginVC: UIViewController {
         button.addTarget(self, action: #selector(guestButtonBtnPressed), for: .touchUpInside)
         return button
     }()
+    
+    private let activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView()
+        indicator.style = .large
+        indicator.hidesWhenStopped = true
+        return indicator
+    }()
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -62,7 +70,19 @@ class LoginVC: UIViewController {
         
     }
     @objc func loginBtnPressed() {
+        guard let email = emailTextField.text, email.isNotEmpty,
+            let password = passwordTextField.text, password.isNotEmpty else { return }
         
+        activityIndicator.startAnimating()
+        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+            if let error = error {
+                debugPrint(error)
+                return
+            }
+            
+            self.activityIndicator.stopAnimating()
+            print("Login sucessful")
+        }
     }
     @objc func newUserBtnPressed() {
         navigationController?.pushViewController(RegisterVC(), animated: true)
@@ -86,6 +106,9 @@ class LoginVC: UIViewController {
         stack.spacing = 15
         view.addSubview(stack)
         stack.anchor(top: view.topAnchor, trailing: view.trailingAnchor, leading: view.leadingAnchor, topPadding: 20, trailingPadding: 20, leadingPadding: 20)
+        
+        view.addSubview(activityIndicator)
+        activityIndicator.anchor(centerY: stack.centerYAnchor, centerX: stack.centerXAnchor, centerYPadding: -7)
     }
 }
 

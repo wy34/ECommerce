@@ -7,39 +7,42 @@
 //
 
 import UIKit
+import Firebase
 
 class RegisterVC: UIViewController {
     
     // MARK: - Properties
-    let backgroundImage: UIImageView = {
+    private let backgroundImage: UIImageView = {
         return UIImageView().setUpBackground(withImage: #imageLiteral(resourceName: "bg_right1"))
     }()
     
-    let registerLabel: UILabel = {
+    private let registerLabel: UILabel = {
         return UILabel().createTitleLabels(withText: "Register", ofColor: .customRed)
     }()
     
-    let usernameTextField: UITextField = {
+    private let usernameTextField: UITextField = {
         return UITextField().createCustomTextField(withPlaceholder: "username")
     }()
     
-    let emailTextField: UITextField = {
+    private let emailTextField: UITextField = {
         return UITextField().createCustomTextField(withPlaceholder: "email")
     }()
     
-    let passwordTextField: UITextField = {
+    private let passwordTextField: UITextField = {
         return UITextField().createCustomTextField(withPlaceholder: "password", withCheckImage: #imageLiteral(resourceName: "red_check"))
     }()
     
-    let confirmPasswordTextField: UITextField = {
-        return UITextField().createCustomTextField(withPlaceholder: "password", withCheckImage: #imageLiteral(resourceName: "red_check"))
+    private let confirmPasswordTextField: UITextField = {
+        return UITextField().createCustomTextField(withPlaceholder: "confirm password", withCheckImage: #imageLiteral(resourceName: "red_check"))
     }()
     
-    let registerButton: UIButton = {
-        return UIButton().createCustomButton(withTitle: "Register", ofColor: .customWhite, withBackgroundColor: .customBlue)
+    private let registerButton: UIButton = {
+        let button = UIButton().createCustomButton(withTitle: "Register", ofColor: .customWhite, withBackgroundColor: .customBlue)
+        button.addTarget(self, action: #selector(handleRegisterPressed), for: .touchUpInside)
+        return button
     }()
     
-    let activityIndicator: UIActivityIndicatorView = {
+    private let activityIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView()
         indicator.style = .large
         indicator.hidesWhenStopped = true
@@ -52,6 +55,21 @@ class RegisterVC: UIViewController {
     }
     
     // MARK: - Selectors
+    @objc func handleRegisterPressed() {
+        guard let username = usernameTextField.text, !username.isEmpty,
+            let email = emailTextField.text, !email.isEmpty,
+            let  password = passwordTextField.text, !username.isEmpty else { return }
+        
+        Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
+            if let error = error {
+                debugPrint(error)
+                return
+            }
+            
+            print("Successfully registered new user")
+        }
+        
+    }
     
     // MARK: - Helper functions
     func configureUI() {

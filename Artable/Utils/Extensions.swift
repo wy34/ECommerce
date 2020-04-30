@@ -70,10 +70,10 @@ extension UITextField {
         if let image = image {
             let imageView = UIImageView()
             tf.addSubview(imageView)
+            imageView.isHidden = true
             imageView.image = image
             imageView.anchor(trailing: tf.trailingAnchor, centerY: tf.centerYAnchor, trailingPadding: 6, height: 30, width: 30)
         }
-        
         return tf
     }
 }

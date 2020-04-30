@@ -20,11 +20,11 @@ class LoginVC: UIViewController {
     }()
     
     private let emailTextField: UITextField = {
-        return UITextField().createCustomTextField(withPlaceholder: "Email")
+        return UITextField().createCustomTextField(withPlaceholder: "email")
     }()
     
     private let passwordTextField: UITextField = {
-        return UITextField().createCustomTextField(withPlaceholder: "Password")
+        return UITextField().createCustomTextField(withPlaceholder: "password")
     }()
     
     private let forgotPasswordButton: UIButton = {

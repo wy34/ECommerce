@@ -75,7 +75,7 @@ class RegisterVC: UIViewController {
             }
             
             self.activityIndicator.stopAnimating()
-            print("Successfully registered new user")
+            self.dismiss(animated: true, completion: nil)
         }
         
     }
@@ -106,6 +106,7 @@ class RegisterVC: UIViewController {
     // MARK: - Helper functions
     func configureUI() {
         edgesForExtendedLayout = []
+        navigationController?.navigationBar.tintColor = .white
         
         view.addSubview(backgroundImage)
         backgroundImage.anchor(top: view.topAnchor, trailing: view.trailingAnchor, bottom: view.bottomAnchor, leading: view.leadingAnchor)

@@ -13,6 +13,7 @@
 		3D18FAD5245A53A40067BECD /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D18FAD4245A53A40067BECD /* PasswordTextField.swift */; };
 		3D18FAD7245A62B00067BECD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D18FAD6245A62B00067BECD /* Constants.swift */; };
 		3D18FADA245A66BA0067BECD /* RoundedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D18FAD9245A66BA0067BECD /* RoundedViews.swift */; };
+		3D18FADC245A705D0067BECD /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D18FADB245A705D0067BECD /* HomeVC.swift */; };
 		3D8523BD2458F8F0005D1157 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8523BC2458F8F0005D1157 /* AppDelegate.swift */; };
 		3D8523BF2458F8F0005D1157 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8523BE2458F8F0005D1157 /* SceneDelegate.swift */; };
 		3D8523C12458F8F0005D1157 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8523C02458F8F0005D1157 /* LoginVC.swift */; };
@@ -38,6 +39,7 @@
 		3D18FAD4245A53A40067BECD /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
 		3D18FAD6245A62B00067BECD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3D18FAD9245A66BA0067BECD /* RoundedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedViews.swift; sourceTree = "<group>"; };
+		3D18FADB245A705D0067BECD /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		3D8523B92458F8F0005D1157 /* Artable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Artable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D8523BC2458F8F0005D1157 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D8523BE2458F8F0005D1157 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 		3D8523ED24591C34005D1157 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				3D18FADB245A705D0067BECD /* HomeVC.swift */,
 				3D8523C02458F8F0005D1157 /* LoginVC.swift */,
 				3D8523EE2459205A005D1157 /* RegisterVC.swift */,
 			);
@@ -395,6 +398,7 @@
 				3D8523C12458F8F0005D1157 /* LoginVC.swift in Sources */,
 				3D8523BD2458F8F0005D1157 /* AppDelegate.swift in Sources */,
 				3D18FAD5245A53A40067BECD /* PasswordTextField.swift in Sources */,
+				3D18FADC245A705D0067BECD /* HomeVC.swift in Sources */,
 				3D8523BF2458F8F0005D1157 /* SceneDelegate.swift in Sources */,
 				3D18FADA245A66BA0067BECD /* RoundedViews.swift in Sources */,
 				3D18FAD7245A62B00067BECD /* Constants.swift in Sources */,

@@ -79,9 +79,8 @@ class LoginVC: UIViewController {
                 debugPrint(error)
                 return
             }
-            
             self.activityIndicator.stopAnimating()
-            print("Login sucessful")
+            self.dismiss(animated: true, completion: nil)
         }
     }
     @objc func newUserBtnPressed() {

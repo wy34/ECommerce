@@ -95,6 +95,7 @@ class LoginVC: UIViewController {
         edgesForExtendedLayout = []
         navigationController?.navigationBar.barTintColor = AppColors.customRed
         navigationController?.navigationBar.barStyle = .black
+        navigationItem.hidesBackButton = true
         
         view.addSubview(backgroundImageView)
         backgroundImageView.anchor(top: view.topAnchor, trailing: view.trailingAnchor, bottom: view.bottomAnchor, leading: view.leadingAnchor)

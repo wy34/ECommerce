@@ -16,12 +16,20 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavBar()
+        
+        if Auth.auth().currentUser == nil {
+            Auth.auth().signInAnonymously { (result, error) in
+                if let error = error {
+                    debugPrint(error.localizedDescription)
+                }
+            }
+        }
     }
     
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if let _ = Auth.auth().currentUser {
+        if let user = Auth.auth().currentUser, !user.isAnonymous {
             navigationItem.leftBarButtonItem?.title = "Logout"
         } else {
             navigationItem.leftBarButtonItem?.title = "Login"
@@ -36,16 +44,24 @@ class HomeVC: UIViewController {
     
     // MARK: - Selectors
     @objc func loginPressed() {
-        if let _ = Auth.auth().currentUser {
-            do {
-                try Auth.auth().signOut()
-            } catch {
-                debugPrint(error.localizedDescription)
-            }
-        }
-       
         let nextScreen = UINavigationController(rootViewController: LoginVC())
         nextScreen.modalPresentationStyle = .fullScreen
-        self.present(nextScreen, animated: true, completion: nil)
+        guard let user = Auth.auth().currentUser else { return }
+        
+        if user.isAnonymous {
+            self.present(nextScreen, animated: true, completion: nil)
+        } else {
+            do {
+                try Auth.auth().signOut()
+                Auth.auth().signInAnonymously { (result, error) in
+                    if let error = error {
+                        debugPrint(error)
+                    }
+                    self.present(nextScreen, animated: true, completion: nil)
+                }
+            } catch {
+                debugPrint(error)
+            }
+        }
     }
 }

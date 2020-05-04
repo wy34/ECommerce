@@ -54,6 +54,7 @@ class RegisterVC: UIViewController {
         indicator.hidesWhenStopped = true
         return indicator
     }()
+
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,7 +74,9 @@ class RegisterVC: UIViewController {
         let credential = EmailAuthProvider.credential(withEmail: email, password: password)
         authUser.link(with: credential) { (result, error) in
             if let error = error {
-                debugPrint(error)
+                debugPrint(error.localizedDescription)
+                self.handleFireAuthError(error: error)
+                self.activityIndicator.stopAnimating()
                 return
             }
             
@@ -104,7 +107,7 @@ class RegisterVC: UIViewController {
             confirmPasswordTextField.passwordCheckImageView.image = #imageLiteral(resourceName: "red_check")
         }
     }
-    
+
     // MARK: - Helper functions
     func configureUI() {
         edgesForExtendedLayout = []

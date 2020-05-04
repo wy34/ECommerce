@@ -21,11 +21,11 @@ class HomeVC: UIViewController {
             Auth.auth().signInAnonymously { (result, error) in
                 if let error = error {
                     debugPrint(error.localizedDescription)
+                    self.handleFireAuthError(error: error)
                 }
             }
         }
     }
-    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -46,6 +46,7 @@ class HomeVC: UIViewController {
     @objc func loginPressed() {
         let nextScreen = UINavigationController(rootViewController: LoginVC())
         nextScreen.modalPresentationStyle = .fullScreen
+        
         guard let user = Auth.auth().currentUser else { return }
         
         if user.isAnonymous {
@@ -56,6 +57,7 @@ class HomeVC: UIViewController {
                 Auth.auth().signInAnonymously { (result, error) in
                     if let error = error {
                         debugPrint(error)
+                        self.handleFireAuthError(error: error)
                     }
                     self.present(nextScreen, animated: true, completion: nil)
                 }

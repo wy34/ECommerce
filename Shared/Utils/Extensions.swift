@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 
 extension UIView {
@@ -113,5 +114,33 @@ extension UIImageView {
 extension String {
     var isNotEmpty: Bool {
         return !isEmpty
+    }
+}
+
+
+extension UIViewController {
+    func handleFireAuthError(error: Error) {
+        
+        if let errorCode = AuthErrorCode(rawValue: error._code) {
+            let alert = UIAlertController(title: "Error", message: errorCode.errorMessage, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alert.addAction(okAction)
+            present(alert, animated: true, completion: nil)
+        }
+    }
+}
+
+
+extension AuthErrorCode {
+    var errorMessage: String {
+        switch self {
+        case .emailAlreadyInUse:
+            return "The email is already in use with another account. Pick another email!"
+        case .invalidEmail:
+            return "Invalid email"
+            
+        default:
+            return "Sorry, something went wrong."
+        }
     }
 }

@@ -120,13 +120,18 @@ extension String {
 
 extension UIViewController {
     func handleFireAuthError(error: Error) {
-        
         if let errorCode = AuthErrorCode(rawValue: error._code) {
             let alert = UIAlertController(title: "Error", message: errorCode.errorMessage, preferredStyle: .alert)
             let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
             alert.addAction(okAction)
             present(alert, animated: true, completion: nil)
         }
+    }
+    
+    func simpleAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
 }
 
@@ -138,7 +143,6 @@ extension AuthErrorCode {
             return "The email is already in use with another account. Pick another email!"
         case .invalidEmail:
             return "Invalid email"
-            
         default:
             return "Sorry, something went wrong."
         }

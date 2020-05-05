@@ -14,6 +14,8 @@
 		3D18FAD7245A62B00067BECD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D18FAD6245A62B00067BECD /* Constants.swift */; };
 		3D18FADA245A66BA0067BECD /* RoundedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D18FAD9245A66BA0067BECD /* RoundedViews.swift */; };
 		3D18FADC245A705D0067BECD /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D18FADB245A705D0067BECD /* HomeVC.swift */; };
+		3D64DF0E2460FA1500E5F798 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D64DF0A2460DF9400E5F798 /* ForgotPasswordVC.swift */; };
+		3D64DF0F2460FA1800E5F798 /* ForgotPasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D64DF0B2460DF9400E5F798 /* ForgotPasswordVC.xib */; };
 		3D8523BD2458F8F0005D1157 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8523BC2458F8F0005D1157 /* AppDelegate.swift */; };
 		3D8523BF2458F8F0005D1157 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8523BE2458F8F0005D1157 /* SceneDelegate.swift */; };
 		3D8523C12458F8F0005D1157 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8523C02458F8F0005D1157 /* LoginVC.swift */; };
@@ -40,6 +42,8 @@
 		3D18FAD6245A62B00067BECD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3D18FAD9245A66BA0067BECD /* RoundedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedViews.swift; sourceTree = "<group>"; };
 		3D18FADB245A705D0067BECD /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		3D64DF0A2460DF9400E5F798 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
+		3D64DF0B2460DF9400E5F798 /* ForgotPasswordVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordVC.xib; sourceTree = "<group>"; };
 		3D8523B92458F8F0005D1157 /* Artable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Artable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D8523BC2458F8F0005D1157 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D8523BE2458F8F0005D1157 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +96,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		3D64DF092460DF7400E5F798 /* XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				3D64DF0A2460DF9400E5F798 /* ForgotPasswordVC.swift */,
+				3D64DF0B2460DF9400E5F798 /* ForgotPasswordVC.xib */,
+			);
+			path = XIBs;
+			sourceTree = "<group>";
+		};
 		3D8523B02458F8F0005D1157 = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +129,7 @@
 		3D8523BB2458F8F0005D1157 /* Artable */ = {
 			isa = PBXGroup;
 			children = (
+				3D64DF092460DF7400E5F798 /* XIBs */,
 				3D8523BC2458F8F0005D1157 /* AppDelegate.swift */,
 				3D8523BE2458F8F0005D1157 /* SceneDelegate.swift */,
 				3D8523F32459279A005D1157 /* Model */,
@@ -291,6 +305,7 @@
 			files = (
 				3D8523C92458F8F3005D1157 /* LaunchScreen.storyboard in Resources */,
 				3D18FAD1245A44A10067BECD /* GoogleService-Info.plist in Resources */,
+				3D64DF0F2460FA1800E5F798 /* ForgotPasswordVC.xib in Resources */,
 				3D8523C62458F8F3005D1157 /* Assets.xcassets in Resources */,
 				3D8523C42458F8F0005D1157 /* Main.storyboard in Resources */,
 			);
@@ -399,6 +414,7 @@
 				3D8523BD2458F8F0005D1157 /* AppDelegate.swift in Sources */,
 				3D18FAD5245A53A40067BECD /* PasswordTextField.swift in Sources */,
 				3D18FADC245A705D0067BECD /* HomeVC.swift in Sources */,
+				3D64DF0E2460FA1500E5F798 /* ForgotPasswordVC.swift in Sources */,
 				3D8523BF2458F8F0005D1157 /* SceneDelegate.swift in Sources */,
 				3D18FADA245A66BA0067BECD /* RoundedViews.swift in Sources */,
 				3D18FAD7245A62B00067BECD /* Constants.swift in Sources */,

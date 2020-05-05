@@ -67,8 +67,12 @@ class LoginVC: UIViewController {
     
     // MARK: - Selectors
     @objc func forgotPasswordBtnPressed() {
-        
+        let screenToGoTo = ForgotPasswordVC()
+        screenToGoTo.modalTransitionStyle = .crossDissolve
+        screenToGoTo.modalPresentationStyle = .overCurrentContext
+        present(screenToGoTo, animated: true, completion: nil)
     }
+    
     @objc func loginBtnPressed() {
         guard let email = emailTextField.text, email.isNotEmpty,
             let password = passwordTextField.text, password.isNotEmpty else {

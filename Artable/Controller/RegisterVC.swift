@@ -77,6 +77,7 @@ class RegisterVC: UIViewController {
         guard let authUser = Auth.auth().currentUser else { return }
         
         let credential = EmailAuthProvider.credential(withEmail: email, password: password)
+        
         authUser.link(with: credential) { (result, error) in
             if let error = error {
                 debugPrint(error.localizedDescription)
@@ -120,7 +121,6 @@ class RegisterVC: UIViewController {
         
         view.addSubview(backgroundImage)
         backgroundImage.anchor(top: view.topAnchor, trailing: view.trailingAnchor, bottom: view.bottomAnchor, leading: view.leadingAnchor)
-        
         
         let stack = UIStackView(arrangedSubviews: [registerLabel, usernameTextField, emailTextField, passwordTextField, confirmPasswordTextField, registerButton])
         stack.axis = .vertical

@@ -14,9 +14,7 @@ class HomeVC: UICollectionViewController {
     var categories = [Category]()
     
     let backgroundImage: UIImageView = {
-        let imageView = UIImageView().setUpBackground(withImage: #imageLiteral(resourceName: "bg_cat3"))
-        imageView.alpha = 0.2
-        return imageView
+        return UIImageView().setUpBackground(withImage: #imageLiteral(resourceName: "bg_cat3"), ofAlpha: 0.2)
     }()
     
     private let activityIndicator: UIActivityIndicatorView = {

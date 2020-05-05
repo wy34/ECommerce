@@ -101,11 +101,16 @@ extension UILabel {
 
 
 extension UIImageView {
-    func setUpBackground(withImage image: UIImage) -> UIImageView {
+    func setUpBackground(withImage image: UIImage, ofAlpha alpha: CGFloat? = nil) -> UIImageView {
         let imageView = UIImageView()
         imageView.image = image
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
+        
+        if let alpha = alpha {
+            imageView.alpha = alpha
+        }
+        
         return imageView
     }
 }

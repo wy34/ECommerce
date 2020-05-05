@@ -11,7 +11,8 @@ import Firebase
 
 class HomeVC: UICollectionViewController {
     // MARK: - Properties
-    var categories = [Category]()
+    var categories = [Category(name: "shoes", id: "23423", imageUrl: "234234", isActive: true, timeStamp: Timestamp())]
+    var selectedCategory: Category!
     
     let backgroundImage: UIImageView = {
         return UIImageView().setUpBackground(withImage: #imageLiteral(resourceName: "bg_cat3"), ofAlpha: 0.2)
@@ -114,12 +115,20 @@ extension HomeVC {
         
         return UICollectionViewCell()
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedCategory = categories[indexPath.item]
+        let screenToGoTo = ProductVC()
+        screenToGoTo.selectedCategory = self.selectedCategory
+        navigationController?.pushViewController(screenToGoTo, animated: true)
+    }
 }
 
 extension HomeVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15)
+        return UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = view.frame.width
         let cellWidth = (width - 50) / 2

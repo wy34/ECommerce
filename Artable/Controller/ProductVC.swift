@@ -13,6 +13,7 @@ class ProductVC: UIViewController {
     // MARK: - Properties
     let tableView = UITableView()
     let products = [Product]()
+    var selectedCategory: Category!
     
     let backgroundImage: UIImageView = {
         return UIImageView().setUpBackground(withImage: #imageLiteral(resourceName: "bg_cat3"), ofAlpha: 0.2)
@@ -23,6 +24,7 @@ class ProductVC: UIViewController {
         super.viewDidLoad()
         setupBaseUI()
         setupTableView()
+        print(selectedCategory)
     }
     
     // MARK: - Helper functions
@@ -33,7 +35,7 @@ class ProductVC: UIViewController {
         backgroundImage.anchor(top: view.topAnchor, trailing: view.trailingAnchor, bottom: view.bottomAnchor, leading: view.leadingAnchor)
         
         view.addSubview(tableView)
-        tableView.anchor(top: view.topAnchor, trailing: view.trailingAnchor, bottom: view.bottomAnchor, leading: view.leadingAnchor, trailingPadding: 10, leadingPadding: 10)
+        tableView.anchor(top: view.topAnchor, trailing: view.trailingAnchor, bottom: view.bottomAnchor, leading: view.leadingAnchor, trailingPadding: 2, leadingPadding: 2)
     }
     
     func setupTableView() {

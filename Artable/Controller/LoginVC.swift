@@ -84,7 +84,7 @@ class LoginVC: UIViewController {
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             if let error = error {
                 debugPrint(error)
-                self.handleFireAuthError(error: error)
+                Auth.auth().handleFireAuthError(error: error, vc: self)
                 self.activityIndicator.stopAnimating()
                 return
             }
@@ -92,9 +92,11 @@ class LoginVC: UIViewController {
             self.dismiss(animated: true, completion: nil)
         }
     }
+    
     @objc func newUserBtnPressed() {
         navigationController?.pushViewController(RegisterVC(), animated: true)
     }
+    
     @objc func guestButtonBtnPressed() {
         
     }

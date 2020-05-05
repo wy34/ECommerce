@@ -29,6 +29,10 @@
 		3D1E1CDE2461DE33001CE8F4 /* ProductVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1E1CDC2461D8A9001CE8F4 /* ProductVC.swift */; };
 		3D1E1CE02461DE8E001CE8F4 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1E1CDF2461DE8E001CE8F4 /* Product.swift */; };
 		3D1E1CE12461DE94001CE8F4 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1E1CDF2461DE8E001CE8F4 /* Product.swift */; };
+		3D1E1CE42461DFC9001CE8F4 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1E1CE22461DFC9001CE8F4 /* ProductCell.swift */; };
+		3D1E1CE52461DFC9001CE8F4 /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D1E1CE32461DFC9001CE8F4 /* ProductCell.xib */; };
+		3D1E1CE62461DFD3001CE8F4 /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D1E1CE32461DFC9001CE8F4 /* ProductCell.xib */; };
+		3D1E1CE72461DFD6001CE8F4 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1E1CE22461DFC9001CE8F4 /* ProductCell.swift */; };
 		3D64DF0E2460FA1500E5F798 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D64DF0A2460DF9400E5F798 /* ForgotPasswordVC.swift */; };
 		3D64DF0F2460FA1800E5F798 /* ForgotPasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D64DF0B2460DF9400E5F798 /* ForgotPasswordVC.xib */; };
 		3D8523BD2458F8F0005D1157 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8523BC2458F8F0005D1157 /* AppDelegate.swift */; };
@@ -64,6 +68,8 @@
 		3D1E1CD62461CBC7001CE8F4 /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
 		3D1E1CDC2461D8A9001CE8F4 /* ProductVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductVC.swift; sourceTree = "<group>"; };
 		3D1E1CDF2461DE8E001CE8F4 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		3D1E1CE22461DFC9001CE8F4 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		3D1E1CE32461DFC9001CE8F4 /* ProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCell.xib; sourceTree = "<group>"; };
 		3D64DF0A2460DF9400E5F798 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
 		3D64DF0B2460DF9400E5F798 /* ForgotPasswordVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordVC.xib; sourceTree = "<group>"; };
 		3D8523B92458F8F0005D1157 /* Artable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Artable.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,6 +121,8 @@
 				3D18FAD4245A53A40067BECD /* PasswordTextField.swift */,
 				3D18FAD9245A66BA0067BECD /* RoundedViews.swift */,
 				3D1E1CD02461C802001CE8F4 /* ActivityIndicator.swift */,
+				3D1E1CD52461CBC7001CE8F4 /* CategoryCell.swift */,
+				3D1E1CE22461DFC9001CE8F4 /* ProductCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -122,8 +130,8 @@
 		3D1E1CDB2461CBDC001CE8F4 /* XIBs */ = {
 			isa = PBXGroup;
 			children = (
-				3D1E1CD52461CBC7001CE8F4 /* CategoryCell.swift */,
 				3D1E1CD62461CBC7001CE8F4 /* CategoryCell.xib */,
+				3D1E1CE32461DFC9001CE8F4 /* ProductCell.xib */,
 			);
 			path = XIBs;
 			sourceTree = "<group>";
@@ -342,6 +350,7 @@
 			files = (
 				3D8523C92458F8F3005D1157 /* LaunchScreen.storyboard in Resources */,
 				3D1E1CD92461CBC7001CE8F4 /* CategoryCell.xib in Resources */,
+				3D1E1CE52461DFC9001CE8F4 /* ProductCell.xib in Resources */,
 				3D18FAD1245A44A10067BECD /* GoogleService-Info.plist in Resources */,
 				3D64DF0F2460FA1800E5F798 /* ForgotPasswordVC.xib in Resources */,
 				3D8523C62458F8F3005D1157 /* Assets.xcassets in Resources */,
@@ -356,6 +365,7 @@
 				3D1E1CDA2461CBC7001CE8F4 /* CategoryCell.xib in Resources */,
 				3D8523E32458F916005D1157 /* LaunchScreen.storyboard in Resources */,
 				3D18FAD3245A45AB0067BECD /* GoogleService-Info.plist in Resources */,
+				3D1E1CE62461DFD3001CE8F4 /* ProductCell.xib in Resources */,
 				3D8523E92458F92B005D1157 /* Assets.xcassets in Resources */,
 				3D8523DE2458F915005D1157 /* Main.storyboard in Resources */,
 			);
@@ -461,6 +471,7 @@
 				3D1E1CE02461DE8E001CE8F4 /* Product.swift in Sources */,
 				3D8523BF2458F8F0005D1157 /* SceneDelegate.swift in Sources */,
 				3D18FADA245A66BA0067BECD /* RoundedViews.swift in Sources */,
+				3D1E1CE42461DFC9001CE8F4 /* ProductCell.swift in Sources */,
 				3D1E1CD32461C9D2001CE8F4 /* Category.swift in Sources */,
 				3D18FAD7245A62B00067BECD /* Constants.swift in Sources */,
 				3D8523EC2459039B005D1157 /* Extensions.swift in Sources */,
@@ -473,6 +484,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D1E1CCE2461BBD2001CE8F4 /* Extensions.swift in Sources */,
+				3D1E1CE72461DFD6001CE8F4 /* ProductCell.swift in Sources */,
 				3D8523DB2458F915005D1157 /* ViewController.swift in Sources */,
 				3D8523D72458F915005D1157 /* AppDelegate.swift in Sources */,
 				3D1E1CD82461CBC7001CE8F4 /* CategoryCell.swift in Sources */,

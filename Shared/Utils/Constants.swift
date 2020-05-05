@@ -18,4 +18,5 @@ struct AppColors {
 
 struct Identifiers {
     static let categoryCell = "cell"
+    static let productCell = "cell"
 }

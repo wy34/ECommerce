@@ -34,7 +34,5 @@ class ProductCell: UITableViewCell {
     @IBAction func favoriteClicked(_ sender: Any) {
            
     }
-    
-    
-    
+
 }

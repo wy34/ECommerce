@@ -53,10 +53,7 @@ class LoginVC: UIViewController {
     }()
     
     private let activityIndicator: UIActivityIndicatorView = {
-        let indicator = UIActivityIndicatorView()
-        indicator.style = .large
-        indicator.hidesWhenStopped = true
-        return indicator
+        return Indicator()
     }()
 
     // MARK: - Lifecycle

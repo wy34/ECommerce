@@ -11,7 +11,7 @@ import Firebase
 
 class ForgotPasswordVC: UIViewController {
     
-    @IBOutlet weak var emaiTextField: UITextField!
+    @IBOutlet weak var emaiTextField: PasswordTextField!
     
     
     override func viewDidLoad() {

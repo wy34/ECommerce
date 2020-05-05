@@ -18,6 +18,9 @@
 		3D1E1CCD2461BBCF001CE8F4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D18FAD6245A62B00067BECD /* Constants.swift */; };
 		3D1E1CCE2461BBD2001CE8F4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8523EB2459039B005D1157 /* Extensions.swift */; };
 		3D1E1CCF2461BBD4001CE8F4 /* Firebase+utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1E1CCB2461BAE7001CE8F4 /* Firebase+utils.swift */; };
+		3D1E1CD12461C802001CE8F4 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1E1CD02461C802001CE8F4 /* ActivityIndicator.swift */; };
+		3D1E1CD32461C9D2001CE8F4 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1E1CD22461C9D2001CE8F4 /* Category.swift */; };
+		3D1E1CD42461C9DC001CE8F4 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1E1CD22461C9D2001CE8F4 /* Category.swift */; };
 		3D64DF0E2460FA1500E5F798 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D64DF0A2460DF9400E5F798 /* ForgotPasswordVC.swift */; };
 		3D64DF0F2460FA1800E5F798 /* ForgotPasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D64DF0B2460DF9400E5F798 /* ForgotPasswordVC.xib */; };
 		3D8523BD2458F8F0005D1157 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8523BC2458F8F0005D1157 /* AppDelegate.swift */; };
@@ -47,6 +50,8 @@
 		3D18FAD9245A66BA0067BECD /* RoundedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedViews.swift; sourceTree = "<group>"; };
 		3D18FADB245A705D0067BECD /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		3D1E1CCB2461BAE7001CE8F4 /* Firebase+utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Firebase+utils.swift"; sourceTree = "<group>"; };
+		3D1E1CD02461C802001CE8F4 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		3D1E1CD22461C9D2001CE8F4 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		3D64DF0A2460DF9400E5F798 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
 		3D64DF0B2460DF9400E5F798 /* ForgotPasswordVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordVC.xib; sourceTree = "<group>"; };
 		3D8523B92458F8F0005D1157 /* Artable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Artable.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,6 +102,7 @@
 			children = (
 				3D18FAD4245A53A40067BECD /* PasswordTextField.swift */,
 				3D18FAD9245A66BA0067BECD /* RoundedViews.swift */,
+				3D1E1CD02461C802001CE8F4 /* ActivityIndicator.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -137,7 +143,6 @@
 				3D64DF092460DF7400E5F798 /* XIBs */,
 				3D8523BC2458F8F0005D1157 /* AppDelegate.swift */,
 				3D8523BE2458F8F0005D1157 /* SceneDelegate.swift */,
-				3D8523F32459279A005D1157 /* Model */,
 				3D8523F024592087005D1157 /* View */,
 				3D8523ED24591C34005D1157 /* Controller */,
 				3D8523C22458F8F0005D1157 /* Main.storyboard */,
@@ -165,6 +170,7 @@
 		3D8523E82458F91C005D1157 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				3D8523F32459279A005D1157 /* Model */,
 				3D8523EA2459038C005D1157 /* Utils */,
 				3D18FAD8245A66A80067BECD /* Views */,
 				3D8523C52458F8F3005D1157 /* Assets.xcassets */,
@@ -202,6 +208,7 @@
 		3D8523F32459279A005D1157 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3D1E1CD22461C9D2001CE8F4 /* Category.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -420,10 +427,12 @@
 				3D8523BD2458F8F0005D1157 /* AppDelegate.swift in Sources */,
 				3D18FAD5245A53A40067BECD /* PasswordTextField.swift in Sources */,
 				3D18FADC245A705D0067BECD /* HomeVC.swift in Sources */,
+				3D1E1CD12461C802001CE8F4 /* ActivityIndicator.swift in Sources */,
 				3D1E1CCC2461BAE7001CE8F4 /* Firebase+utils.swift in Sources */,
 				3D64DF0E2460FA1500E5F798 /* ForgotPasswordVC.swift in Sources */,
 				3D8523BF2458F8F0005D1157 /* SceneDelegate.swift in Sources */,
 				3D18FADA245A66BA0067BECD /* RoundedViews.swift in Sources */,
+				3D1E1CD32461C9D2001CE8F4 /* Category.swift in Sources */,
 				3D18FAD7245A62B00067BECD /* Constants.swift in Sources */,
 				3D8523EC2459039B005D1157 /* Extensions.swift in Sources */,
 				3D8523EF2459205A005D1157 /* RegisterVC.swift in Sources */,
@@ -440,6 +449,7 @@
 				3D8523D92458F915005D1157 /* SceneDelegate.swift in Sources */,
 				3D1E1CCF2461BBD4001CE8F4 /* Firebase+utils.swift in Sources */,
 				3D1E1CCD2461BBCF001CE8F4 /* Constants.swift in Sources */,
+				3D1E1CD42461C9DC001CE8F4 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -603,7 +613,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YNSMJAS38V;
 				INFOPLIST_FILE = Artable/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -623,7 +633,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YNSMJAS38V;
 				INFOPLIST_FILE = Artable/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -643,7 +653,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YNSMJAS38V;
 				INFOPLIST_FILE = ArtableAdmin/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -663,7 +673,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YNSMJAS38V;
 				INFOPLIST_FILE = ArtableAdmin/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

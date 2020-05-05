@@ -18,9 +18,7 @@ extension Auth {
             vc.present(alert, animated: true, completion: nil)
         }
     }
-    
 }
-
 
 extension AuthErrorCode {
     var errorMessage: String {

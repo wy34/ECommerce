@@ -9,10 +9,10 @@
 import UIKit
 import Firebase
 
-private let reuseId = "cell"
-
 class HomeVC: UICollectionViewController {
     // MARK: - Properties
+    var categories = [Category]()
+    
     let backgroundImage: UIImageView = {
         let imageView = UIImageView().setUpBackground(withImage: #imageLiteral(resourceName: "bg_cat3"))
         imageView.alpha = 0.2
@@ -61,6 +61,11 @@ class HomeVC: UICollectionViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(loginPressed))
     }
     
+    func setupCollectionView() {
+        collectionView.backgroundColor = .clear
+        collectionView.register(UINib(nibName: "CategoryCell", bundle: nil), forCellWithReuseIdentifier: Identifiers.categoryCell)
+    }
+    
     func setupBaseUI() {
         view.backgroundColor = .white
         
@@ -69,11 +74,6 @@ class HomeVC: UICollectionViewController {
         
         view.addSubview(activityIndicator)
         activityIndicator.anchor(centerY: view.centerYAnchor, centerX: view.centerXAnchor, height: 15, width: 15)
-    }
-    
-    func setupCollectionView() {
-        collectionView.backgroundColor = .clear
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseId)
     }
     
     // MARK: - Selectors
@@ -107,13 +107,26 @@ extension HomeVC {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 3
     }
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseId, for: indexPath)
-        cell.backgroundColor = .red
-        return cell
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Identifiers.categoryCell, for: indexPath) as? CategoryCell {
+            cell.categoryLabel.backgroundColor = .green
+            return cell
+        }
+        
+        return UICollectionViewCell()
     }
 }
 
 extension HomeVC: UICollectionViewDelegateFlowLayout {
-    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = view.frame.width
+        let cellWidth = (width - 50) / 2
+        let cellHeight = cellWidth * 1.5
+        
+        return CGSize(width: cellWidth, height: cellHeight)
+    }
 }

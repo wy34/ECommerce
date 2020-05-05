@@ -14,3 +14,8 @@ struct AppColors {
     static let customRed = #colorLiteral(red: 0.8352941176, green: 0.3921568627, blue: 0.3137254902, alpha: 1)
     static let customWhite = #colorLiteral(red: 0.9529411765, green: 0.9490196078, blue: 0.968627451, alpha: 1)
 }
+
+
+struct Identifiers {
+    static let categoryCell = "cell"
+}

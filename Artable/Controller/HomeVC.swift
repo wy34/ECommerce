@@ -53,8 +53,6 @@ class HomeVC: UICollectionViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
-        
         super.viewDidAppear(animated)
         setCategoriesListener()
         
@@ -67,6 +65,8 @@ class HomeVC: UICollectionViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         listener.remove()
+        categories.removeAll()
+        collectionView.reloadData()
     }
     
     func setCategoriesListener() {

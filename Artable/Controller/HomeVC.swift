@@ -16,7 +16,9 @@ class HomeVC: UICollectionViewController {
     var db: Firestore!
     
     let backgroundImage: UIImageView = {
-        return UIImageView().setUpBackground(withImage: #imageLiteral(resourceName: "bg_cat3"), ofAlpha: 0.2)
+        let imageView = UIImageView().setUpBackground(withImage: #imageLiteral(resourceName: "bg_cat3"), ofAlpha: 0.2)
+        imageView.layer.zPosition = -5
+        return imageView
     }()
     
     private let activityIndicator: UIActivityIndicatorView = {
@@ -47,7 +49,8 @@ class HomeVC: UICollectionViewController {
                 }
             }
         }
-        fetchDocument()
+        //fetchDocument()
+        fetchCollection()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -65,6 +68,19 @@ class HomeVC: UICollectionViewController {
             guard let data = snap?.data() else { return }
             let newCategory = Category.init(data: data)
             self.categories.append(newCategory)
+            self.collectionView.reloadData()
+        }
+    }
+    
+    func fetchCollection() {
+        let collectionRef = db.collection("categories")
+        collectionRef.getDocuments { (snap, error) in
+            guard let documents = snap?.documents else  { return }
+            for document in documents {
+                let data = document.data()
+                let newCategory = Category.init(data: data)
+                self.categories.append(newCategory)
+            }
             self.collectionView.reloadData()
         }
     }

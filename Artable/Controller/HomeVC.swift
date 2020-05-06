@@ -63,13 +63,7 @@ class HomeVC: UICollectionViewController {
         let docRef = db.collection("categories").document("b4jKhZtj4zVRsjIAW8lN")
         docRef.getDocument { (snap, error) in
             guard let data = snap?.data() else { return }
-            let name = data["name"] as? String ?? ""
-            let id = data["id"] as? String ?? ""
-            let imageUrl = data["imageUrl"] as? String ?? ""
-            let isActive = data["isActive"] as? Bool ?? true
-            let timeStamp = data["timeStamp"] as? Timestamp ?? Timestamp()
-            
-            let newCategory = Category.init(name: name, id: id, imageUrl: imageUrl, isActive: isActive, timeStamp: timeStamp)
+            let newCategory = Category.init(data: data)
             self.categories.append(newCategory)
             self.collectionView.reloadData()
         }

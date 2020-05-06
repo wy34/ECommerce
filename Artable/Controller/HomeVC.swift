@@ -11,8 +11,9 @@ import Firebase
 
 class HomeVC: UICollectionViewController {
     // MARK: - Properties
-    var categories = [Category(name: "shoes", id: "23423", imageUrl: "234234", isActive: true, timeStamp: Timestamp())]
+    var categories = [Category]()
     var selectedCategory: Category!
+    var db: Firestore!
     
     let backgroundImage: UIImageView = {
         return UIImageView().setUpBackground(withImage: #imageLiteral(resourceName: "bg_cat3"), ofAlpha: 0.2)
@@ -36,6 +37,8 @@ class HomeVC: UICollectionViewController {
         setupBaseUI()
         setupCollectionView()
         
+        db = Firestore.firestore()
+        
         if Auth.auth().currentUser == nil {
             Auth.auth().signInAnonymously { (result, error) in
                 if let error = error {
@@ -44,6 +47,7 @@ class HomeVC: UICollectionViewController {
                 }
             }
         }
+        fetchDocument()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -52,6 +56,22 @@ class HomeVC: UICollectionViewController {
             navigationItem.leftBarButtonItem?.title = "Logout"
         } else {
             navigationItem.leftBarButtonItem?.title = "Login"
+        }
+    }
+    
+    func fetchDocument() {
+        let docRef = db.collection("categories").document("b4jKhZtj4zVRsjIAW8lN")
+        docRef.getDocument { (snap, error) in
+            guard let data = snap?.data() else { return }
+            let name = data["name"] as? String ?? ""
+            let id = data["id"] as? String ?? ""
+            let imageUrl = data["imageUrl"] as? String ?? ""
+            let isActive = data["isActive"] as? Bool ?? true
+            let timeStamp = data["timeStamp"] as? Timestamp ?? Timestamp()
+            
+            let newCategory = Category.init(name: name, id: id, imageUrl: imageUrl, isActive: isActive, timeStamp: timeStamp)
+            self.categories.append(newCategory)
+            self.collectionView.reloadData()
         }
     }
     
@@ -104,12 +124,12 @@ class HomeVC: UICollectionViewController {
     // MARK: - CollectionView delegate methods
 extension HomeVC {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return categories.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Identifiers.categoryCell, for: indexPath) as? CategoryCell {
-            cell.categoryLabel.backgroundColor = .green
+            cell.configureCell(category: categories[indexPath.item])
             return cell
         }
         

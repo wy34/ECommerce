@@ -84,7 +84,7 @@ class HomeVC: UICollectionViewController {
                 case .added:
                     self.onDocumentAdded(change: change, category: category)
                 case .modified:
-                    self.onDocumentModified()
+                    self.onDocumentModified(change: change, category: category)
                 case .removed:
                     self.onDocumentRemoved(change: change)
                 }
@@ -98,8 +98,18 @@ class HomeVC: UICollectionViewController {
         collectionView.insertItems(at: [IndexPath(item: newIndex, section: 0)])
     }
     
-    func onDocumentModified() {
-        
+    func onDocumentModified(change: DocumentChange, category: Category) {
+        if change.newIndex == change.oldIndex {
+            let index = Int(change.newIndex)
+            categories[index] = category
+            collectionView.reloadItems(at: [IndexPath(item: index, section: 0)])
+        } else {
+            let oldIndex = Int(change.oldIndex)
+            let newIndex = Int(change.newIndex)
+            categories.remove(at: oldIndex)
+            categories.insert(category, at: newIndex)
+            collectionView.moveItem(at: IndexPath(item: oldIndex, section: 0), to: IndexPath(item: newIndex, section: 0))
+        }
     }
     
     func onDocumentRemoved(change: DocumentChange) {

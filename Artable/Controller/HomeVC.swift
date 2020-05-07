@@ -41,15 +41,7 @@ class HomeVC: UICollectionViewController {
         setupCollectionView()
         
         db = Firestore.firestore()
-        
-        if Auth.auth().currentUser == nil {
-            Auth.auth().signInAnonymously { (result, error) in
-                if let error = error {
-                    debugPrint(error.localizedDescription)
-                    Auth.auth().handleFireAuthError(error: error, vc: self)
-                }
-            }
-        }
+        setupInitialAnonUser()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -68,9 +60,20 @@ class HomeVC: UICollectionViewController {
         categories.removeAll()
         collectionView.reloadData()
     }
+    // MARK: - Firebase helper functions
+    func setupInitialAnonUser() {
+        if Auth.auth().currentUser == nil {
+            Auth.auth().signInAnonymously { (result, error) in
+                if let error = error {
+                    debugPrint(error.localizedDescription)
+                    Auth.auth().handleFireAuthError(error: error, vc: self)
+                }
+            }
+        }
+    }
     
     func setCategoriesListener() {
-        listener = db.collection("categories").order(by: "timeStamp", descending: true).addSnapshotListener({ (snap, error) in
+        listener = db.categories.addSnapshotListener({ (snap, error) in
             if let error = error {
                 debugPrint(error.localizedDescription)
                 return
@@ -92,6 +95,71 @@ class HomeVC: UICollectionViewController {
         })
     }
     
+    // MARK: - UI Setup functions
+    func setupNavBar() {
+        let shoppingCartButton = UIBarButtonItem(image: #imageLiteral(resourceName: "bar_button_cart"), style: .plain, target: self, action: #selector(shoppingCartPressed))
+        let favoriteButton = UIBarButtonItem(image: #imageLiteral(resourceName: "bar_button_star"), style: .plain, target: self, action: #selector(favoritePressed))
+        navigationItem.rightBarButtonItems = [shoppingCartButton, favoriteButton]
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(loginPressed))
+        navigationController?.navigationBar.tintColor = AppColors.customWhite
+        navigationController?.navigationBar.barTintColor = AppColors.customBlue
+        
+        title = "artable"
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: AppColors.customWhite, NSAttributedString.Key.font: UIFont(name: "Futura", size: 26)]
+    }
+    
+    func setupCollectionView() {
+        collectionView.backgroundColor = .clear
+        collectionView.register(UINib(nibName: "CategoryCell", bundle: nil), forCellWithReuseIdentifier: Identifiers.categoryCell)
+    }
+    
+    func setupBaseUI() {
+        view.backgroundColor = .white
+        
+        view.addSubview(backgroundImage)
+        backgroundImage.anchor(top: view.topAnchor, trailing: view.trailingAnchor, bottom: view.bottomAnchor, leading: view.leadingAnchor)
+        
+        view.addSubview(activityIndicator)
+        activityIndicator.anchor(centerY: view.centerYAnchor, centerX: view.centerXAnchor, height: 15, width: 15)
+    }
+    
+    // MARK: - Selector functions
+    @objc func loginPressed() {
+        let nextScreen = UINavigationController(rootViewController: LoginVC())
+        nextScreen.modalPresentationStyle = .fullScreen
+        
+        guard let user = Auth.auth().currentUser else { return }
+        
+        if user.isAnonymous {
+            self.present(nextScreen, animated: true, completion: nil)
+        } else {
+            do {
+                try Auth.auth().signOut()
+                Auth.auth().signInAnonymously { (result, error) in
+                    if let error = error {
+                        debugPrint(error)
+                        Auth.auth().handleFireAuthError(error: error, vc: self)
+                    }
+                    self.present(nextScreen, animated: true, completion: nil)
+                }
+            } catch {
+                debugPrint(error)
+            }
+        }
+    }
+    
+    @objc func shoppingCartPressed() {
+        
+    }
+    
+    @objc func favoritePressed() {
+        
+    }
+}
+
+
+// MARK: - CollectionView delegate methods
+extension HomeVC {
     func onDocumentAdded(change: DocumentChange, category: Category) {
         let newIndex = Int(change.newIndex)
         categories.insert(category, at: newIndex)
@@ -118,54 +186,6 @@ class HomeVC: UICollectionViewController {
         collectionView.deleteItems(at: [IndexPath(item: oldIndex, section: 0)])
     }
     
-    // MARK: - Helper functions
-    func setupNavBar() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(loginPressed))
-    }
-    
-    func setupCollectionView() {
-        collectionView.backgroundColor = .clear
-        collectionView.register(UINib(nibName: "CategoryCell", bundle: nil), forCellWithReuseIdentifier: Identifiers.categoryCell)
-    }
-    
-    func setupBaseUI() {
-        view.backgroundColor = .white
-        
-        view.addSubview(backgroundImage)
-        backgroundImage.anchor(top: view.topAnchor, trailing: view.trailingAnchor, bottom: view.bottomAnchor, leading: view.leadingAnchor)
-        
-        view.addSubview(activityIndicator)
-        activityIndicator.anchor(centerY: view.centerYAnchor, centerX: view.centerXAnchor, height: 15, width: 15)
-    }
-    
-    // MARK: - Selectors
-    @objc func loginPressed() {
-        let nextScreen = UINavigationController(rootViewController: LoginVC())
-        nextScreen.modalPresentationStyle = .fullScreen
-        
-        guard let user = Auth.auth().currentUser else { return }
-        
-        if user.isAnonymous {
-            self.present(nextScreen, animated: true, completion: nil)
-        } else {
-            do {
-                try Auth.auth().signOut()
-                Auth.auth().signInAnonymously { (result, error) in
-                    if let error = error {
-                        debugPrint(error)
-                        Auth.auth().handleFireAuthError(error: error, vc: self)
-                    }
-                    self.present(nextScreen, animated: true, completion: nil)
-                }
-            } catch {
-                debugPrint(error)
-            }
-        }
-    }
-}
-
-    // MARK: - CollectionView delegate methods
-extension HomeVC {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return categories.count
     }
@@ -189,13 +209,13 @@ extension HomeVC {
 
 extension HomeVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
+        return UIEdgeInsets(top: 15, left: 20, bottom: 15, right: 20)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = view.frame.width
-        let cellWidth = (width - 50) / 2
-        let cellHeight = cellWidth * 1.5
+        let cellWidth = (width - 65) / 2
+        let cellHeight = cellWidth * 1.65
         
         return CGSize(width: cellWidth, height: cellHeight)
     }
@@ -220,7 +240,7 @@ extension HomeVC: UICollectionViewDelegateFlowLayout {
 
 
 
- //   func fetchDocument() {
+//   func fetchDocument() {
 //        let docRef = db.collection("categories").document("b4jKhZtj4zVRsjIAW8lN")
 //        docRef.addSnapshotListener { (snap, error) in
 //            self.categories.removeAll()

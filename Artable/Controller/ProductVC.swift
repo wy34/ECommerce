@@ -125,11 +125,11 @@ extension ProductVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = ProductDetailVC()
+        let screenToGoTo = ProductDetailVC()
         let selectedProduct = products[indexPath.row]
-        vc.product = selectedProduct
-        vc.modalTransitionStyle = .crossDissolve
-        vc.modalPresentationStyle = .overCurrentContext
-        present(vc, animated: true, completion: nil)
+        screenToGoTo.product = selectedProduct
+        screenToGoTo.modalTransitionStyle = .crossDissolve
+        screenToGoTo.modalPresentationStyle = .overCurrentContext
+        present(screenToGoTo, animated: true, completion: nil)
     }
 }

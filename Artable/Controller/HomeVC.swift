@@ -60,6 +60,7 @@ class HomeVC: UICollectionViewController {
         categories.removeAll()
         collectionView.reloadData()
     }
+    
     // MARK: - Firebase helper functions
     func setupInitialAnonUser() {
         if Auth.auth().currentUser == nil {
@@ -103,7 +104,6 @@ class HomeVC: UICollectionViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(loginPressed))
         navigationController?.navigationBar.tintColor = AppColors.customWhite
         navigationController?.navigationBar.barTintColor = AppColors.customBlue
-        
         title = "artable"
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: AppColors.customWhite, NSAttributedString.Key.font: UIFont(name: "Futura", size: 26)]
     }
@@ -156,7 +156,6 @@ class HomeVC: UICollectionViewController {
         
     }
 }
-
 
 // MARK: - CollectionView delegate methods
 extension HomeVC {

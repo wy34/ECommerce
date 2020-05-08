@@ -7,13 +7,16 @@
 //
 
 import UIKit
+import Firebase
 
 class ProductVC: UIViewController {
     
     // MARK: - Properties
     let tableView = UITableView()
-    let products = [Product]()
+    var products = [Product]()
     var selectedCategory: Category!
+    var listener: ListenerRegistration!
+    var db: Firestore!
     
     let backgroundImage: UIImageView = {
         return UIImageView().setUpBackground(withImage: #imageLiteral(resourceName: "bg_cat3"), ofAlpha: 0.2)
@@ -24,10 +27,62 @@ class ProductVC: UIViewController {
         super.viewDidLoad()
         setupBaseUI()
         setupTableView()
-        print(selectedCategory)
+        
+        db = Firestore.firestore()
+        setProductsListener()
     }
     
-    // MARK: - Helper functions
+    // MARK: - Firebase helper functions
+    func setProductsListener() {
+        listener = db.products(category: selectedCategory.id).addSnapshotListener({(snap, error) in
+            if let error = error {
+                debugPrint(error.localizedDescription)
+                return
+            }
+            
+            snap?.documentChanges.forEach({ (change) in
+                let data = change.document.data()
+                let newProduct = Product.init(data: data)
+                
+                switch change.type {
+                case .added:
+                    self.onDocumentAdded(change: change, product: newProduct)
+                case .modified:
+                    self.onDocumentModified(change: change, product: newProduct)
+                case .removed:
+                    self.onDocumentRemoved(change: change)
+                }
+            })
+        })
+    }
+    
+    func onDocumentAdded(change: DocumentChange, product: Product) {
+        let newIndex = Int(change.newIndex)
+        products.insert(product, at: newIndex)
+        tableView.insertRows(at: [IndexPath(row: newIndex, section: 0)], with: .fade)
+    }
+    
+    func onDocumentModified(change: DocumentChange, product: Product) {
+        if change.newIndex == change.oldIndex {
+            let index = Int(change.oldIndex)
+            products[index] = product
+            tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .none)
+        } else {
+            let newIndex = Int(change.newIndex)
+            let oldIndex = Int(change.oldIndex)
+            products.remove(at: oldIndex)
+            products.insert(product, at: newIndex)
+            tableView.moveRow(at: IndexPath(row: oldIndex, section: 0), to: IndexPath(row: newIndex, section: 0))
+        }
+    }
+    
+    func onDocumentRemoved(change: DocumentChange) {
+        let oldIndex = Int(change.oldIndex)
+        products.remove(at: oldIndex)
+        tableView.deleteRows(at: [IndexPath(row: oldIndex, section: 0)], with: .left)
+    }
+    
+    // MARK: - Setup UI functions
     func setupBaseUI() {
         view.backgroundColor = .white
         
@@ -53,11 +108,12 @@ class ProductVC: UIViewController {
     // MARK: - Tableview delegate methods
 extension ProductVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return products.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.productCell, for: indexPath) as? ProductCell {
+            cell.configureCell(product: products[indexPath.row])
             return cell
         }
         return UITableViewCell()

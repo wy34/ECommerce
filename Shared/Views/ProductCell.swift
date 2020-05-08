@@ -21,7 +21,7 @@ class ProductCell: UITableViewCell {
 
     func configureCell(product: Product) {
         productTitle.text = product.name
-        //productPrice.text = product.price
+        productPrice.text = String(product.price)
         if let url = URL(string: product.imageUrl) {
             productImage.kf.setImage(with: url)
         }

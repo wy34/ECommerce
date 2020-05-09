@@ -11,10 +11,13 @@ import Firebase
 
 class AdminHomeVC: HomeVC {
   
+    
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
+    // MARK: - Overridden methods
     override func setupNavBar() {
         super.setupNavBar()
         navigationItem.leftBarButtonItem?.isEnabled = false
@@ -22,9 +25,9 @@ class AdminHomeVC: HomeVC {
         navigationItem.rightBarButtonItems = [UIBarButtonItem(title: "Add Category", style: .plain, target: self, action: #selector(addCategory))]
     }
     
-    
     // MARK: - Selectors
     @objc func addCategory() {
-        
+        let screenToGoTo = AddEditCategoryVC()
+        navigationController?.pushViewController(screenToGoTo, animated: true)
     }
 }

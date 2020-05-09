@@ -78,6 +78,7 @@ class LoginVC: UIViewController {
         }
         
         activityIndicator.startAnimating()
+        
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             if let error = error {
                 debugPrint(error)

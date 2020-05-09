@@ -65,7 +65,7 @@ class RegisterVC: UIViewController {
             let  password = passwordTextField.text, password.isNotEmpty else {
                 simpleAlert(title: "Error", message: "Please fill out all fields.")
                 return
-            }
+        }
         
         guard let confirmedPass = confirmPasswordTextField.text, confirmedPass == password else {
             simpleAlert(title: "Error", message: "Passwords do not match")

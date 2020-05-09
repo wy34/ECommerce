@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseFirestore
 import FirebaseStorage
 
 class AddEditCategoryVC: UIViewController {
@@ -92,41 +93,58 @@ class AddEditCategoryVC: UIViewController {
         // turns jpeg image into a data object, small compressionQuality makes image quicker load
         guard let imageData = image.jpegData(compressionQuality: 0.2) else { return }
         
-        // creates an address/folder
+        // creates an address of where to upload the data
         let imageRef = Storage.storage().reference().child("/categoryImages/\(categoryName).jpg")
         
         // set metadata
         let metaData = StorageMetadata()
         metaData.contentType = "image/jpg"
         
-        // upload data
+        // upload data to storage
         imageRef.putData(imageData, metadata: metaData) { (metaData, error) in
             if let error = error {
-                debugPrint(error.localizedDescription)
-                self.simpleAlert(title: "Error", message: "Unable to upload image")
-                self.activityIndicator.stopAnimating()
+                self.handleError(error: error, msg: "Unable to upload image")
                 return
             }
             
             // once image is uploaded, retrieve the download url
             imageRef.downloadURL { (url, error) in
                 if let error = error {
-                    debugPrint(error.localizedDescription)
-                    self.simpleAlert(title: "Error", message: "Unable to upload image")
-                    self.activityIndicator.stopAnimating()
+                    self.handleError(error: error, msg: "Unable to upload image")
                     return
                 }
                 
                 guard let url = url else { return }
-                print(url)
                 
+                // upload the new category document into the categories collection in firestore
+                self.uploadDocument(url: url.absoluteString)
             }
         }
-        
     }
     
-    func uploadDocument() {
+    func uploadDocument(url: String) {
+        var docRef: DocumentReference!
+        var category = Category(name: categoryTextField.text!, id: "", imageUrl: url, timeStamp: Timestamp())
         
+        docRef = Firestore.firestore().collection("categories").document()
+        category.id = docRef.documentID
+        
+        let data = Category.modelToData(category: category)
+        
+        docRef.setData(data, merge: true) { (error) in
+            if let error = error {
+                self.handleError(error: error, msg: "Unable to retreive image url")
+                return
+            }
+            
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
+    func handleError(error: Error, msg: String) {
+        debugPrint(error.localizedDescription)
+        self.simpleAlert(title: "Error", message: msg)
+        self.activityIndicator.stopAnimating()
     }
     
     // MARK: - Selector functions

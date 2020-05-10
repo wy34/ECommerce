@@ -23,6 +23,8 @@
 		3D00811F2466146300046A85 /* PickerImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D00811E2466146300046A85 /* PickerImageView.swift */; };
 		3D0BE2072464EF44005EA30A /* ProductDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0BE2052464EF44005EA30A /* ProductDetailVC.swift */; };
 		3D0BE2082464EF44005EA30A /* ProductDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D0BE2062464EF44005EA30A /* ProductDetailVC.xib */; };
+		3D11A4432467492400A7A6C9 /* AdminProductsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D11A4422467492400A7A6C9 /* AdminProductsVC.swift */; };
+		3D11A44524675F3900A7A6C9 /* AddEditProductsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D11A44424675F3900A7A6C9 /* AddEditProductsVC.swift */; };
 		3D18FAD1245A44A10067BECD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D18FAD0245A44A10067BECD /* GoogleService-Info.plist */; };
 		3D18FAD3245A45AB0067BECD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D18FAD2245A45AB0067BECD /* GoogleService-Info.plist */; };
 		3D18FAD5245A53A40067BECD /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D18FAD4245A53A40067BECD /* PasswordTextField.swift */; };
@@ -73,6 +75,8 @@
 		3D00811E2466146300046A85 /* PickerImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerImageView.swift; sourceTree = "<group>"; };
 		3D0BE2052464EF44005EA30A /* ProductDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailVC.swift; sourceTree = "<group>"; };
 		3D0BE2062464EF44005EA30A /* ProductDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductDetailVC.xib; sourceTree = "<group>"; };
+		3D11A4422467492400A7A6C9 /* AdminProductsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminProductsVC.swift; sourceTree = "<group>"; };
+		3D11A44424675F3900A7A6C9 /* AddEditProductsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditProductsVC.swift; sourceTree = "<group>"; };
 		3D18FAD0245A44A10067BECD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3D18FAD2245A45AB0067BECD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3D18FAD4245A53A40067BECD /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
@@ -138,6 +142,8 @@
 			children = (
 				3D8523DA2458F915005D1157 /* AdminHomeVC.swift */,
 				3D0081192465F27400046A85 /* AddEditCategoryVC.swift */,
+				3D11A4422467492400A7A6C9 /* AdminProductsVC.swift */,
+				3D11A44424675F3900A7A6C9 /* AddEditProductsVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -535,6 +541,7 @@
 			files = (
 				3D0081162465EF9100046A85 /* ProductDetailVC.swift in Sources */,
 				3D1E1CCE2461BBD2001CE8F4 /* Extensions.swift in Sources */,
+				3D11A4432467492400A7A6C9 /* AdminProductsVC.swift in Sources */,
 				3D0081112465EF0F00046A85 /* HomeVC.swift in Sources */,
 				3D1E1CE72461DFD6001CE8F4 /* ProductCell.swift in Sources */,
 				3D00810E2465EB1E00046A85 /* PasswordTextField.swift in Sources */,
@@ -546,6 +553,7 @@
 				3D1E1CD82461CBC7001CE8F4 /* CategoryCell.swift in Sources */,
 				3D0081132465EF7300046A85 /* RegisterVC.swift in Sources */,
 				3D0081142465EF7500046A85 /* ProductVC.swift in Sources */,
+				3D11A44524675F3900A7A6C9 /* AddEditProductsVC.swift in Sources */,
 				3D00811A2465F27400046A85 /* AddEditCategoryVC.swift in Sources */,
 				3D8523D92458F915005D1157 /* SceneDelegate.swift in Sources */,
 				3D1E1CCF2461BBD4001CE8F4 /* Firebase+utils.swift in Sources */,

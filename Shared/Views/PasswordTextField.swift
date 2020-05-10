@@ -25,7 +25,6 @@ class PasswordTextField: UITextField {
     // MARK: - Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupTextField()
     }
     
     required init?(coder: NSCoder) {
@@ -37,12 +36,14 @@ class PasswordTextField: UITextField {
         backgroundColor = .white
         layer.cornerRadius = 10
         anchor(height: 40)
-        
+
         addSubview(padding)
         leftView = padding
         leftViewMode = .always
-        
+
         addSubview(passwordCheckImageView)
         passwordCheckImageView.anchor(trailing: self.trailingAnchor, centerY: self.centerYAnchor, trailingPadding: 6, height: 30, width: 30)
     }
+
+
 }

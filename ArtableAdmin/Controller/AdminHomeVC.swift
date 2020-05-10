@@ -25,9 +25,14 @@ class AdminHomeVC: HomeVC {
         navigationItem.rightBarButtonItems = [UIBarButtonItem(title: "Add Category", style: .plain, target: self, action: #selector(addCategory))]
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedCategory = categories[indexPath.item]
+        let screenToGoTo = AdminProductsVC()
+        screenToGoTo.selectedCategory = self.selectedCategory
+        navigationController?.pushViewController(screenToGoTo, animated: true)
+    }
     // MARK: - Selectors
     @objc func addCategory() {
-        let screenToGoTo = AddEditCategoryVC()
-        navigationController?.pushViewController(screenToGoTo, animated: true)
+        navigationController?.pushViewController(AddEditCategoryVC.shared, animated: true)
     }
 }

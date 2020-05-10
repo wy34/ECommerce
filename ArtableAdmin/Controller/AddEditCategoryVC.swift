@@ -13,6 +13,8 @@ import FirebaseStorage
 class AddEditCategoryVC: UIViewController {
     
     // MARK: - Properties
+    static let shared = AddEditCategoryVC()
+    
     let categoryTitle: UILabel = {
         let label = UILabel().createTitleLabels(withText: "Category Label", ofColor: AppColors.customBlue)
         label.heightAnchor.constraint(equalToConstant: 30).isActive = true

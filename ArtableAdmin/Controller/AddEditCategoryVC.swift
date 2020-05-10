@@ -13,7 +13,7 @@ import FirebaseStorage
 class AddEditCategoryVC: UIViewController {
     
     // MARK: - Properties
-    static let shared = AddEditCategoryVC()
+    var categoryToEdit: Category?
     
     let categoryTitle: UILabel = {
         let label = UILabel().createTitleLabels(withText: "Category Label", ofColor: AppColors.customBlue)
@@ -51,6 +51,16 @@ class AddEditCategoryVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBaseUI()
+        
+        if let category = categoryToEdit {
+            categoryTextField.text = category.name
+            addCategoryBtn.setTitle("Save Changes", for: .normal)
+            
+            if let url = URL(string: category.imageUrl) {
+                imageView.contentMode = .scaleAspectFill
+                imageView.kf.setImage(with: url)
+            }
+        }
     }
     
     // MARK: - Setup UI Functions
@@ -128,11 +138,15 @@ class AddEditCategoryVC: UIViewController {
         var docRef: DocumentReference!
         var category = Category(name: categoryTextField.text!, id: "", imageUrl: url, timeStamp: Timestamp())
         
-        docRef = Firestore.firestore().collection("categories").document()
-        category.id = docRef.documentID
+        if let categoryToEdit = categoryToEdit {
+            docRef = Firestore.firestore().collection("categories").document(categoryToEdit.id)
+            category.id = categoryToEdit.id
+        } else {
+            docRef = Firestore.firestore().collection("categories").document()
+            category.id = docRef.documentID
+        }
         
         let data = Category.modelToData(category: category)
-        
         docRef.setData(data, merge: true) { (error) in
             if let error = error {
                 self.handleError(error: error, msg: "Unable to retreive image url")
@@ -157,7 +171,6 @@ class AddEditCategoryVC: UIViewController {
     @objc func addCategoryClicked() {
         uploadImageThenDocument()
     }
-    
 }
 
 // MARK: - ImagePickerController and NavigationController delegate methods

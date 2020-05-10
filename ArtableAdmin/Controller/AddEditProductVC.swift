@@ -8,9 +8,7 @@
 
 import UIKit
 
-class AddEditProductsVC: UIViewController {
-    
-    static let shared = AddEditProductsVC()
+class AddEditProductVC: UIViewController {
     var selectedCategory: Category!
     var productToEdit: Product?
 

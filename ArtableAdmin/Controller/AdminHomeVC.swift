@@ -11,7 +11,6 @@ import Firebase
 
 class AdminHomeVC: HomeVC {
   
-    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,12 +26,12 @@ class AdminHomeVC: HomeVC {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedCategory = categories[indexPath.item]
-        let screenToGoTo = AdminProductsVC()
+        let screenToGoTo = AdminProductVC()
         screenToGoTo.selectedCategory = self.selectedCategory
         navigationController?.pushViewController(screenToGoTo, animated: true)
     }
     // MARK: - Selectors
     @objc func addCategory() {
-        navigationController?.pushViewController(AddEditCategoryVC.shared, animated: true)
+        navigationController?.pushViewController(AddEditCategoryVC(), animated: true)
     }
 }

@@ -25,6 +25,7 @@ class PasswordTextField: UITextField {
     // MARK: - Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setupTextField()
     }
     
     required init?(coder: NSCoder) {

@@ -8,9 +8,7 @@
 
 import UIKit
 
-class AdminProductsVC: ProductVC {
-
-    
+class AdminProductVC: ProductVC {
     var selectedProduct: Product?
     
     // MARK: - Lifecycle
@@ -28,15 +26,19 @@ class AdminProductsVC: ProductVC {
     
     // MARK: - Selector functions
     @objc func editCategory() {
-        navigationController?.pushViewController(AddEditCategoryVC.shared, animated: true)
+        let screenToGoTo = AddEditCategoryVC()
+        screenToGoTo.categoryToEdit = self.selectedCategory
+        navigationController?.pushViewController(screenToGoTo, animated: true)
     }
     
     @objc func newProduct() {
-        navigationController?.pushViewController(AddEditProductsVC.shared, animated: true)
+        navigationController?.pushViewController(AddEditProductVC(), animated: true)
     }
     
+    // MARK: - Overridden Method
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let screenToGoTo = AddEditProductVC()
         selectedProduct = products[indexPath.row]
-        navigationController?.pushViewController(AddEditProductsVC.shared, animated: true)
+        navigationController?.pushViewController(screenToGoTo, animated: true)
     }
 }

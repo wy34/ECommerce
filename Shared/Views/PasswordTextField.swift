@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PasswordTextField: UITextField {
+class PasswordTextField: RoundIndentedTextfield {
     // MARK: - Properties
     let passwordCheckImageView: UIImageView = {
         let imageView = UIImageView()
@@ -16,35 +16,20 @@ class PasswordTextField: UITextField {
         return imageView
     }()
     
-    let padding: UIView = {
-        let padding = UIView()
-        padding.anchor(height: 10, width: 10)
-        return padding
-    }()
-    
     // MARK: - Lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupTextField()
+        addSubview(passwordCheckImageView)
+        passwordCheckImageView.anchor(trailing: self.trailingAnchor, centerY: self.centerYAnchor, trailingPadding: 6, height: 30, width: 30)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Helper functions
-    func setupTextField() {
-        backgroundColor = .white
-        layer.cornerRadius = 10
-        anchor(height: 40)
-
-        addSubview(padding)
-        leftView = padding
-        leftViewMode = .always
-
-        addSubview(passwordCheckImageView)
-        passwordCheckImageView.anchor(trailing: self.trailingAnchor, centerY: self.centerYAnchor, trailingPadding: 6, height: 30, width: 30)
+    override func withPlaceholder(_ placeholder: String) -> PasswordTextField {
+        let tf = PasswordTextField()
+        tf.placeholder = placeholder
+        return tf
     }
-
-
 }

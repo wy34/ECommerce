@@ -20,12 +20,12 @@ class LoginVC: UIViewController {
         return UILabel().createTitleLabels(withText: "Log In", ofColor: AppColors.customBlue)
     }()
     
-    private let emailTextField: UITextField = {
-        return UITextField().create(withPlaceholder: "email")
+    private let emailTextField: RoundIndentedTextfield = {
+        return RoundIndentedTextfield().withPlaceholder("email")
     }()
     
-    private let passwordTextField: UITextField = {
-        return UITextField().create(withPlaceholder: "password")
+    private let passwordTextField: RoundIndentedTextfield = {
+        return RoundIndentedTextfield().withPlaceholder("password")
     }()
     
     private let forgotPasswordButton: UIButton = {

@@ -20,24 +20,22 @@ class RegisterVC: UIViewController {
         return UILabel().createTitleLabels(withText: "Register", ofColor: AppColors.customRed)
     }()
     
-    private let usernameTextField: UITextField = {
-        return UITextField().create(withPlaceholder: "username")
+    private let usernameTextField: RoundIndentedTextfield = {
+        return RoundIndentedTextfield().withPlaceholder("username")
     }()
     
-    private let emailTextField: UITextField = {
-        return UITextField().create(withPlaceholder: "email")
+    private let emailTextField: RoundIndentedTextfield = {
+        return RoundIndentedTextfield().withPlaceholder("email")
     }()
     
     private let passwordTextField: PasswordTextField = {
-        let tf = PasswordTextField()
-        tf.placeholder = "password"
+        let tf = PasswordTextField().withPlaceholder("password")
         tf.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         return tf
     }()
     
     private let confirmPasswordTextField: PasswordTextField = {
-        let tf = PasswordTextField()
-        tf.placeholder = "confirm password"
+        let tf = PasswordTextField().withPlaceholder("confirm password")
         tf.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         return tf
     }()

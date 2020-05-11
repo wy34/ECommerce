@@ -32,7 +32,9 @@ class AdminProductVC: ProductVC {
     }
     
     @objc func newProduct() {
-        navigationController?.pushViewController(AddEditProductVC(), animated: true)
+        let screenToGoTo = AddEditProductVC()
+        screenToGoTo.selectedCategory = selectedCategory
+        navigationController?.pushViewController(screenToGoTo, animated: true)
     }
     
     // MARK: - Overridden Method

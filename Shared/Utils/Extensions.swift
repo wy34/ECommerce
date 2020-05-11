@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import Firebase
-
 
 extension UIView {
     func anchor(top: NSLayoutYAxisAnchor? = nil, trailing: NSLayoutXAxisAnchor? = nil, bottom: NSLayoutYAxisAnchor? = nil, leading: NSLayoutXAxisAnchor? = nil, centerY: NSLayoutYAxisAnchor? = nil, centerX: NSLayoutXAxisAnchor? = nil, topPadding: CGFloat = 0, trailingPadding: CGFloat = 0, bottomPadding: CGFloat = 0, leadingPadding: CGFloat = 0, centerYPadding: CGFloat = 0, centerXPadding: CGFloat = 0, height: CGFloat? = nil, width: CGFloat? = nil) {
@@ -51,23 +49,23 @@ extension UIView {
 }
 
 
-extension UITextField {
-    func create(withPlaceholder placeholder: String) -> UITextField {
-        let tf = UITextField()
-        tf.backgroundColor = .white
-        tf.placeholder = placeholder
-        tf.anchor(height: 40)
-        
-        let padding = UIView()
-        padding.anchor(height: tf.frame.height, width: 10)
-        tf.leftView = padding
-        tf.leftViewMode = .always
-        
-        tf.layer.cornerRadius = 10
-        
-        return tf
-    }
-}
+//extension UITextField {
+//    func create(withPlaceholder placeholder: String) -> UITextField {
+//        let tf = UITextField()
+//        tf.backgroundColor = .white
+//        tf.placeholder = placeholder
+//        tf.anchor(height: 40)
+//        tf.borderStyle = .roundedRect
+//        
+//        let padding = UIView()
+//        padding.anchor(height: tf.frame.height, width: 10)
+//        tf.leftView = padding
+//        tf.leftViewMode = .always
+//        
+//        return tf
+//    }
+//}
+
 
 extension UIButton {
     func createCustomButton(withTitle title: String, ofColor color: UIColor, withBackgroundColor bgColor: UIColor, textAlignment: UIControl.ContentHorizontalAlignment? = nil) -> UIButton {

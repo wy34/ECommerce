@@ -14,9 +14,13 @@ class ProductCell: UITableViewCell {
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var productTitle: UILabel!
     @IBOutlet weak var productPrice: UILabel!
+    @IBOutlet weak var addButton: UIButton!
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        addButton.layer.cornerRadius = 5
+        addButton.backgroundColor = AppColors.customRed
+        addButton.tintColor = AppColors.customWhite
     }
 
     func configureCell(product: Product) {

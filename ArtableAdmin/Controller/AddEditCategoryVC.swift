@@ -22,8 +22,9 @@ class AddEditCategoryVC: UIViewController {
     }()
     
     lazy var categoryTextField: UITextField = {
-        let tf = UITextField().create(withPlaceholder: "Category Name")
+        let tf = RoundIndentedTextfield().withPlaceholder("Category Name")
         tf.widthAnchor.constraint(equalToConstant: view.frame.width - 30).isActive = true
+        tf.borderStyle = .roundedRect
         return tf
     }()
     
@@ -51,16 +52,7 @@ class AddEditCategoryVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBaseUI()
-        
-        if let category = categoryToEdit {
-            categoryTextField.text = category.name
-            addCategoryBtn.setTitle("Save Changes", for: .normal)
-            
-            if let url = URL(string: category.imageUrl) {
-                imageView.contentMode = .scaleAspectFill
-                imageView.kf.setImage(with: url)
-            }
-        }
+        checkIfEditing()
     }
     
     // MARK: - Setup UI Functions
@@ -84,7 +76,7 @@ class AddEditCategoryVC: UIViewController {
         
         view.addSubview(activityIndicator)
         activityIndicator.anchor(top: imageView.bottomAnchor, centerX: view.centerXAnchor, topPadding: 20, height: 25, width: 25)
-
+        
         view.addSubview(addCategoryBtn)
         addCategoryBtn.anchor(trailing: view.trailingAnchor, bottom: view.bottomAnchor, leading: view.leadingAnchor, trailingPadding: 15, bottomPadding: 30, leadingPadding: 15)
         
@@ -163,6 +155,18 @@ class AddEditCategoryVC: UIViewController {
         self.activityIndicator.stopAnimating()
     }
     
+    func checkIfEditing() {
+        if let category = categoryToEdit {
+            categoryTextField.text = category.name
+            addCategoryBtn.setTitle("Save Changes", for: .normal)
+            
+            if let url = URL(string: category.imageUrl) {
+                imageView.contentMode = .scaleAspectFill
+                imageView.kf.setImage(with: url)
+            }
+        }
+    }
+    
     // MARK: - Selector functions
     @objc func imgTapped() {
         launchImagePicker()
@@ -187,7 +191,7 @@ extension AddEditCategoryVC: UIImagePickerControllerDelegate, UINavigationContro
         imageView.image = image
         dismiss(animated: true, completion: nil)
     }
-
+    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }

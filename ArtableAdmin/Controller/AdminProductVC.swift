@@ -41,6 +41,7 @@ class AdminProductVC: ProductVC {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let screenToGoTo = AddEditProductVC()
         selectedProduct = products[indexPath.row]
+        screenToGoTo.productToEdit = self.selectedProduct
         navigationController?.pushViewController(screenToGoTo, animated: true)
     }
 }

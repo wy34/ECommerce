@@ -77,6 +77,7 @@ class AddEditProductVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBaseUI()
+        checkIfEditing()
     }
     
     // MARK: - Setup UI Functions
@@ -102,7 +103,12 @@ class AddEditProductVC: UIViewController {
         guard let productName = productNameTextField.text, productName.isNotEmpty,
                let productPrice = productPriceTextField.text, productPrice.isNotEmpty,
                let description = descriptionTextView.text, description.isNotEmpty,
-               let image = imageView.image else { return }
+               let image = imageView.image else {
+                    simpleAlert(title: "Error", message: "Please fill out all fields")
+                    return
+                }
+        
+        activityIndicator.startAnimating()
         
         guard let imageData = image.jpegData(compressionQuality: 0.2) else { return }
         
@@ -114,20 +120,22 @@ class AddEditProductVC: UIViewController {
         imageRef.putData(imageData, metadata: metaData) { (metadata, error) in
             if let error = error {
                 debugPrint(error.localizedDescription)
-                self.simpleAlert(title: "Error", message: "Unable to upload image.")
+                self.simpleAlert(title: "Error", message: "Unable to upload image to storage.")
                 return
             }
             
             imageRef.downloadURL { (url, error) in
                 if let error = error {
                     debugPrint(error.localizedDescription)
-                    self.simpleAlert(title: "Error", message: "Unable to upload image")
+                    self.simpleAlert(title: "Error", message: "Unable to download url")
                     return
                 }
                 
                 guard let url = url else { return }
                 
                 self.uploadDocument(url: url.absoluteString)
+                
+                self.activityIndicator.stopAnimating()
             }
         }
     }
@@ -141,8 +149,14 @@ class AddEditProductVC: UIViewController {
         var docRef: DocumentReference!
         var productData = Product(name: productNameTextField.text!, id: "", category: selectedCategory.id, price: Double(productPriceTextField.text!)!, productDescription: descriptionTextView.text!, imageUrl: url, timeStamp: Timestamp(), stock: 0)
         
-        docRef = Firestore.firestore().collection("products").document()
-        productData.id = docRef.documentID
+        
+        if let productToEdit = productToEdit {
+            docRef = Firestore.firestore().collection("products").document(productToEdit.id)
+            productData.id = productToEdit.id
+        } else {
+            docRef = Firestore.firestore().collection("products").document()
+            productData.id = docRef.documentID
+        }
         
         let data = Product.modelToData(product: productData)
         
@@ -156,6 +170,20 @@ class AddEditProductVC: UIViewController {
             self.navigationController?.popViewController(animated: true)
         }
         
+    }
+    
+    func checkIfEditing() {
+        if let productToEdit = productToEdit {
+            productNameTextField.text = productToEdit.name
+            productPriceTextField.text = String(productToEdit.price)
+            descriptionTextView.text = productToEdit.productDescription
+            addCategoryBtn.setTitle("Save Changes", for: .normal)
+        
+            if let url = URL(string: productToEdit.imageUrl) {
+                imageView.contentMode = .scaleAspectFill
+                imageView.kf.setImage(with: url)
+            }
+        }
     }
 }
     

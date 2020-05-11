@@ -26,8 +26,18 @@ class ProductCell: UITableViewCell {
     func configureCell(product: Product) {
         productTitle.text = product.name
         productPrice.text = String(product.price)
+        
         if let url = URL(string: product.imageUrl) {
-            productImage.kf.setImage(with: url)
+            let placeholderImage = UIImage(named: "placeholder")
+            productImage.kf.indicatorType = .activity
+            let options: KingfisherOptionsInfo = [KingfisherOptionsInfoItem.transition(.fade(0.2))]
+            productImage.kf.setImage(with: url, placeholder: placeholderImage, options: options)
+        }
+        
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        if let price = formatter.string(from: product.price as NSNumber) {
+            productPrice.text = price
         }
     }
     

@@ -51,6 +51,8 @@
 		3D1E1CE52461DFC9001CE8F4 /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D1E1CE32461DFC9001CE8F4 /* ProductCell.xib */; };
 		3D1E1CE62461DFD3001CE8F4 /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D1E1CE32461DFC9001CE8F4 /* ProductCell.xib */; };
 		3D1E1CE72461DFD6001CE8F4 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1E1CE22461DFC9001CE8F4 /* ProductCell.swift */; };
+		3D37EB1B2469F345007808F5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D37EB1A2469F345007808F5 /* User.swift */; };
+		3D37EB1C2469FA4B007808F5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D37EB1A2469F345007808F5 /* User.swift */; };
 		3D64DF0E2460FA1500E5F798 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D64DF0A2460DF9400E5F798 /* ForgotPasswordVC.swift */; };
 		3D64DF0F2460FA1800E5F798 /* ForgotPasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D64DF0B2460DF9400E5F798 /* ForgotPasswordVC.xib */; };
 		3D8523BD2458F8F0005D1157 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8523BC2458F8F0005D1157 /* AppDelegate.swift */; };
@@ -95,6 +97,7 @@
 		3D1E1CDF2461DE8E001CE8F4 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		3D1E1CE22461DFC9001CE8F4 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		3D1E1CE32461DFC9001CE8F4 /* ProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCell.xib; sourceTree = "<group>"; };
+		3D37EB1A2469F345007808F5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3D64DF0A2460DF9400E5F798 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
 		3D64DF0B2460DF9400E5F798 /* ForgotPasswordVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordVC.xib; sourceTree = "<group>"; };
 		3D8523B92458F8F0005D1157 /* Artable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Artable.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -297,6 +300,7 @@
 			children = (
 				3D1E1CDF2461DE8E001CE8F4 /* Product.swift */,
 				3D1E1CD22461C9D2001CE8F4 /* Category.swift */,
+				3D37EB1A2469F345007808F5 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -526,6 +530,7 @@
 				3D18FADC245A705D0067BECD /* HomeVC.swift in Sources */,
 				3D1E1CD12461C802001CE8F4 /* ActivityIndicator.swift in Sources */,
 				3D14198524687B19004C31A3 /* RoundIndentedTextfield.swift in Sources */,
+				3D37EB1B2469F345007808F5 /* User.swift in Sources */,
 				3D0BE2072464EF44005EA30A /* ProductDetailVC.swift in Sources */,
 				3D1E1CCC2461BAE7001CE8F4 /* Firebase+utils.swift in Sources */,
 				3D64DF0E2460FA1500E5F798 /* ForgotPasswordVC.swift in Sources */,
@@ -547,6 +552,7 @@
 				3D0081162465EF9100046A85 /* ProductDetailVC.swift in Sources */,
 				3D1E1CCE2461BBD2001CE8F4 /* Extensions.swift in Sources */,
 				3D11A4432467492400A7A6C9 /* AdminProductVC.swift in Sources */,
+				3D37EB1C2469FA4B007808F5 /* User.swift in Sources */,
 				3D0081112465EF0F00046A85 /* HomeVC.swift in Sources */,
 				3D1E1CE72461DFD6001CE8F4 /* ProductCell.swift in Sources */,
 				3D00810E2465EB1E00046A85 /* PasswordTextField.swift in Sources */,

@@ -42,6 +42,7 @@ class AdminProductVC: ProductVC {
         let screenToGoTo = AddEditProductVC()
         selectedProduct = products[indexPath.row]
         screenToGoTo.productToEdit = self.selectedProduct
+        screenToGoTo.selectedCategory = selectedCategory
         navigationController?.pushViewController(screenToGoTo, animated: true)
     }
 }

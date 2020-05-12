@@ -10,7 +10,6 @@ import UIKit
 import Firebase
 
 class AdminHomeVC: HomeVC {
-  
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()

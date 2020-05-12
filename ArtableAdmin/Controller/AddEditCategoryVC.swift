@@ -14,6 +14,7 @@ class AddEditCategoryVC: UIViewController {
     
     // MARK: - Properties
     var categoryToEdit: Category?
+    var selectedImage: UIImage?
     
     let categoryTitle: UILabel = {
         let label = UILabel().createTitleLabels(withText: "Category Label", ofColor: AppColors.customBlue)

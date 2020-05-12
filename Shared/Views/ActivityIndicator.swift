@@ -9,9 +9,9 @@
 import UIKit
 
 class Indicator: UIActivityIndicatorView {
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        self.style = .large
-        self.hidesWhenStopped = true
+    convenience init() {
+        self.init(frame: CGRect.zero)
+        style = .large
+        hidesWhenStopped = true
     }
 }

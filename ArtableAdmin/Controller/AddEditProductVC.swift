@@ -101,7 +101,8 @@ class AddEditProductVC: UIViewController {
     // MARK: - Selector functions
     @objc func addProductClicked() {
         guard let productName = productNameTextField.text, productName.isNotEmpty,
-               let productPrice = productPriceTextField.text, productPrice.isNotEmpty,
+               let productPriceString = productPriceTextField.text, productPriceString.isNotEmpty,
+               let productPriceDouble = Double(productPriceString),
                let description = descriptionTextView.text, description.isNotEmpty,
                let image = imageView.image else {
                     simpleAlert(title: "Error", message: "Please fill out all fields")

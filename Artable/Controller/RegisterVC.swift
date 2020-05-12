@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseFirestore
 import Firebase
 
 class RegisterVC: UIViewController {
@@ -49,7 +50,7 @@ class RegisterVC: UIViewController {
     private let activityIndicator: UIActivityIndicatorView = {
         return Indicator()
     }()
-
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,8 +85,9 @@ class RegisterVC: UIViewController {
                 return
             }
             
-            self.activityIndicator.stopAnimating()
-            self.dismiss(animated: true, completion: nil)
+            guard let firUser = result?.user else { return }
+            let artUser = User.init(id: firUser.uid, email: email, username: username, stripeId: "")
+            self.createFirestoreUser(user: artUser)
         }
     }
     
@@ -111,7 +113,7 @@ class RegisterVC: UIViewController {
             confirmPasswordTextField.passwordCheckImageView.image = #imageLiteral(resourceName: "red_check")
         }
     }
-
+    
     // MARK: - Helper functions
     func configureUI() {
         edgesForExtendedLayout = []
@@ -129,6 +131,23 @@ class RegisterVC: UIViewController {
         
         view.addSubview(activityIndicator)
         activityIndicator.anchor(top: stack.bottomAnchor, centerX: view.centerXAnchor, topPadding: 30, height: 15, width: 15)
+    }
+    
+    func createFirestoreUser(user: User) {
+        let userRef: DocumentReference = Firestore.firestore().collection("users").document()
+        
+        let data = User.modelToData(user: user)
+        
+        userRef.setData(data) { (error) in
+            if let error = error {
+                debugPrint(error.localizedDescription)
+                self.simpleAlert(title: "Error", message: "Unable to set user data")
+                return
+            } else {
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
+        
     }
     
 }

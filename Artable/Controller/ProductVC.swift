@@ -113,7 +113,7 @@ extension ProductVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.productCell, for: indexPath) as? ProductCell {
-            cell.configureCell(product: products[indexPath.row])
+            cell.configureCell(product: products[indexPath.row], delegate: self)
             cell.selectionStyle = .none
             return cell
         }
@@ -131,5 +131,14 @@ extension ProductVC: UITableViewDelegate, UITableViewDataSource {
         screenToGoTo.modalTransitionStyle = .crossDissolve
         screenToGoTo.modalPresentationStyle = .overCurrentContext
         present(screenToGoTo, animated: true, completion: nil)
+    }
+}
+
+    // MARK: - ProductCell delegate methods (Favoriting)
+extension ProductVC: ProductCellDelegate {
+    func productFavorited(product: Product) {
+        UserService.favoriteSelected(product: product)
+        guard let index = products.firstIndex(of: product) else { return }
+        tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
     }
 }

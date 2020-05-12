@@ -9,12 +9,20 @@
 import UIKit
 import Kingfisher
 
+protocol ProductCellDelegate: class {
+    func productFavorited(product: Product)
+}
+
 class ProductCell: UITableViewCell {
     
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var productTitle: UILabel!
     @IBOutlet weak var productPrice: UILabel!
     @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var favoriteButton: UIButton!
+    
+    weak var delegate: ProductCellDelegate?
+    private var product: Product!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,7 +31,9 @@ class ProductCell: UITableViewCell {
         addButton.tintColor = AppColors.customWhite
     }
 
-    func configureCell(product: Product) {
+    func configureCell(product: Product, delegate: ProductCellDelegate) {
+        self.product = product
+        self.delegate = delegate
         productTitle.text = product.name
         productPrice.text = String(product.price)
         
@@ -39,6 +49,12 @@ class ProductCell: UITableViewCell {
         if let price = formatter.string(from: product.price as NSNumber) {
             productPrice.text = price
         }
+        
+        if UserService.favorites.contains(product) {
+            favoriteButton.setImage(#imageLiteral(resourceName: "filled_star"), for: .normal)
+        } else {
+            favoriteButton.setImage(#imageLiteral(resourceName: "empty_star"), for: .normal)
+        }
     }
     
     @IBAction func addToCartClicked(_ sender: Any) {
@@ -46,7 +62,6 @@ class ProductCell: UITableViewCell {
     }
     
     @IBAction func favoriteClicked(_ sender: Any) {
-           
+        delegate?.productFavorited(product: product)
     }
-
 }

@@ -60,7 +60,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="nH7-LC-rCR" firstAttribute="top" secondItem="0L2-Jm-rwh" secondAttribute="top" constant="8" id="8Zi-yY-r5y"/>
                             <constraint firstAttribute="bottom" secondItem="nH7-LC-rCR" secondAttribute="bottom" constant="8" id="FcF-NS-8pP"/>
@@ -87,6 +87,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="addButton" destination="CLY-Y2-lHX" id="Dn2-m6-sPe"/>
+                <outlet property="favoriteButton" destination="9Zz-8w-ml6" id="0e1-Am-CUs"/>
                 <outlet property="productImage" destination="nH7-LC-rCR" id="4Cc-b7-7og"/>
                 <outlet property="productPrice" destination="Y8a-qQ-Q2d" id="d4k-Rd-s2x"/>
                 <outlet property="productTitle" destination="oXm-89-380" id="3uP-BT-sAt"/>

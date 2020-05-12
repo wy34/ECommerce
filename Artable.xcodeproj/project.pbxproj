@@ -54,6 +54,7 @@
 		3D37EB1B2469F345007808F5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D37EB1A2469F345007808F5 /* User.swift */; };
 		3D37EB1C2469FA4B007808F5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D37EB1A2469F345007808F5 /* User.swift */; };
 		3D37EB1F246A24BF007808F5 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D37EB1E246A24BF007808F5 /* UserService.swift */; };
+		3D4BA8AF246B49DD007B94CD /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D37EB1E246A24BF007808F5 /* UserService.swift */; };
 		3D64DF0E2460FA1500E5F798 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D64DF0A2460DF9400E5F798 /* ForgotPasswordVC.swift */; };
 		3D64DF0F2460FA1800E5F798 /* ForgotPasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D64DF0B2460DF9400E5F798 /* ForgotPasswordVC.xib */; };
 		3D8523BD2458F8F0005D1157 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8523BC2458F8F0005D1157 /* AppDelegate.swift */; };
@@ -567,6 +568,7 @@
 				3D37EB1C2469FA4B007808F5 /* User.swift in Sources */,
 				3D0081112465EF0F00046A85 /* HomeVC.swift in Sources */,
 				3D1E1CE72461DFD6001CE8F4 /* ProductCell.swift in Sources */,
+				3D4BA8AF246B49DD007B94CD /* UserService.swift in Sources */,
 				3D00810E2465EB1E00046A85 /* PasswordTextField.swift in Sources */,
 				3D8523DB2458F915005D1157 /* AdminHomeVC.swift in Sources */,
 				3D0081102465EB2400046A85 /* ActivityIndicator.swift in Sources */,

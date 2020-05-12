@@ -53,6 +53,7 @@
 		3D1E1CE72461DFD6001CE8F4 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1E1CE22461DFC9001CE8F4 /* ProductCell.swift */; };
 		3D37EB1B2469F345007808F5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D37EB1A2469F345007808F5 /* User.swift */; };
 		3D37EB1C2469FA4B007808F5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D37EB1A2469F345007808F5 /* User.swift */; };
+		3D37EB1F246A24BF007808F5 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D37EB1E246A24BF007808F5 /* UserService.swift */; };
 		3D64DF0E2460FA1500E5F798 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D64DF0A2460DF9400E5F798 /* ForgotPasswordVC.swift */; };
 		3D64DF0F2460FA1800E5F798 /* ForgotPasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D64DF0B2460DF9400E5F798 /* ForgotPasswordVC.xib */; };
 		3D8523BD2458F8F0005D1157 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8523BC2458F8F0005D1157 /* AppDelegate.swift */; };
@@ -98,6 +99,7 @@
 		3D1E1CE22461DFC9001CE8F4 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		3D1E1CE32461DFC9001CE8F4 /* ProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCell.xib; sourceTree = "<group>"; };
 		3D37EB1A2469F345007808F5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3D37EB1E246A24BF007808F5 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		3D64DF0A2460DF9400E5F798 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
 		3D64DF0B2460DF9400E5F798 /* ForgotPasswordVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordVC.xib; sourceTree = "<group>"; };
 		3D8523B92458F8F0005D1157 /* Artable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Artable.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -191,6 +193,14 @@
 			path = XIBs;
 			sourceTree = "<group>";
 		};
+		3D37EB1D246A24AF007808F5 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3D37EB1E246A24BF007808F5 /* UserService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		3D64DF092460DF7400E5F798 /* XIBs */ = {
 			isa = PBXGroup;
 			children = (
@@ -226,6 +236,7 @@
 		3D8523BB2458F8F0005D1157 /* Artable */ = {
 			isa = PBXGroup;
 			children = (
+				3D37EB1D246A24AF007808F5 /* Services */,
 				3D64DF092460DF7400E5F798 /* XIBs */,
 				3D8523BC2458F8F0005D1157 /* AppDelegate.swift */,
 				3D8523BE2458F8F0005D1157 /* SceneDelegate.swift */,
@@ -536,6 +547,7 @@
 				3D64DF0E2460FA1500E5F798 /* ForgotPasswordVC.swift in Sources */,
 				3D1E1CE02461DE8E001CE8F4 /* Product.swift in Sources */,
 				3D8523BF2458F8F0005D1157 /* SceneDelegate.swift in Sources */,
+				3D37EB1F246A24BF007808F5 /* UserService.swift in Sources */,
 				3D18FADA245A66BA0067BECD /* RoundedViews.swift in Sources */,
 				3D1E1CE42461DFC9001CE8F4 /* ProductCell.swift in Sources */,
 				3D1E1CD32461C9D2001CE8F4 /* Category.swift in Sources */,

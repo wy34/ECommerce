@@ -50,6 +50,9 @@ class HomeVC: UICollectionViewController {
         
         if let user = Auth.auth().currentUser, !user.isAnonymous {
             navigationItem.leftBarButtonItem?.title = "Logout"
+            if UserService.userListener == nil {
+                UserService.getCurrentUser()
+            }
         } else {
             navigationItem.leftBarButtonItem?.title = "Login"
         }
@@ -135,6 +138,7 @@ class HomeVC: UICollectionViewController {
         } else {
             do {
                 try Auth.auth().signOut()
+                UserService.logoutUser()
                 Auth.auth().signInAnonymously { (result, error) in
                     if let error = error {
                         debugPrint(error)
